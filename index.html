@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Hub</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Inline CSS for Enhanced Styling -->
+  <style>
+    /* General Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #121212;
+      color: #e6e6e6;
+      font-family: 'Poppins', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+
+    /* Header Section */
+    header {
+      text-align: center;
+      margin: 30px 0;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    header h1 {
+      font-size: 3.5em;
+      font-family: 'Roboto', sans-serif;
+      font-weight: 700;
+      letter-spacing: 3px;
+      background: linear-gradient(90deg, #ff0000, #ff6f00, #ffff00, #00ff00, #ff0000);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: colorCycle 6s infinite linear;
+      text-shadow: 0 0 10px rgba(255, 111, 0, 0.8);
+    }
+
+    header p {
+      color: #b3b3b3;
+      font-size: 1.2em;
+      margin-top: 8px;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    /* Games Container */
+    .games-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      width: 100%;
+      max-width: 1400px;
+      padding: 20px;
+      animation: fadeInUp 1.4s ease-in-out;
+    }
+
+    /* Game Item Style */
+    .game-item {
+      background-color: #1c1c1c;
+      border: 2px solid rgba(255, 111, 0, 0.5);
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.7);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      transform: scale(1);
+    }
+
+    .game-item:hover {
+      transform: translateY(-8px) scale(1.08);
+      box-shadow: 0px 12px 30px rgba(255, 111, 0, 0.7);
+    }
+
+    .game-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(255, 111, 0, 0.3), rgba(0, 0, 0, 0));
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+
+    .game-item:hover::before {
+      opacity: 1;
+    }
+
+    .game-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-bottom: 4px solid #ff6f00;
+      transition: transform 0.4s;
+    }
+
+    .game-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .game-item h2 {
+      color: #ff6f00;
+      font-size: 1.5em;
+      font-weight: 600;
+      margin: 15px 0 8px;
+      transition: color 0.4s;
+    }
+
+    .game-item:hover h2 {
+      color: #ffd700;
+    }
+
+    .game-item p {
+      color: #bdbdbd;
+      padding: 0 15px 20px;
+      font-size: 1em;
+    }
+
+    /* Keyframes for Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes colorCycle {
+      0% { color: #ff0000; }
+      25% { color: #ff6f00; }
+      50% { color: #ffff00; }
+      75% { color: #00ff00; }
+      100% { color: #ff0000; }
+    }
+
+    /* Responsive Layout */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.8em;
+      }
+      header p {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎮 PlayerVPN</h1>
+    <p>Discover and play games with style!</p>
+  </header>
+  
+  <div class="games-container">
+    <!-- Game items with links to respective pages -->
+    <div class="game-item" onclick="openGame('snowrider.html')">
+      <img src="path/to/your-image1.jpg" alt="Game 1">
+      <h2>Snowrider 3D</h2>
+      <p>Ride through the SnowRider world and get your best high score!</p>
+    </div>
+    <div class="game-item" onclick="openGame('game2.html')">
+      <img src="path/to/your-image2.jpg" alt="Game 2">
+      <h2>Game 2</h2>
+      <p>Test your skills and strategy!</p>
+    </div>
+    <!-- Add more game items here -->
+  </div>
+
+  <!-- Inline JavaScript for Tab Cloak & Header Navigation -->
+  <script>
+    function openGame(gameFile) {
+      const newWindow = window.open(gameFile, '_blank');
+
+      setTimeout(() => {
+        newWindow.document.title = "Home | Schoology";
+
+        // Set favicon for new page
+        const link = newWindow.document.createElement('link');
+        link.rel = 'icon';
+        link.href = 'https://www.betterbuys.com/wp-content/uploads/2016/11/schoology-logo.png';
+        newWindow.document.head.appendChild(link);
+
+        // Add header with glowing text linking back to main page
+        const header = newWindow.document.createElement('header');
+        header.innerHTML = `<h1 onclick="window.location.href='/index.html'" style="cursor: pointer; font-size: 1.5em; font-family: 'Roboto', sans-serif; background: linear-gradient(90deg, #ff0000, #ff6f00, #ffff00, #00ff00, #ff0000); -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: colorCycle 6s infinite linear;">🎮 PlayerVPN</h1>`;
+        header.style.cssText = "position: absolute; top: 10px; left: 10px; color: #ff6f00;";
+
+        newWindow.document.body.insertBefore(header, newWindow.document.body.firstChild);
+      }, 100);
+    }
+  </script>
+</body>
+</html>
