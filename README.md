@@ -10,3 +10,6 @@ If you play **AmongUS**, just know **if your device can not run WEBGL it will co
 
 
 If you **WANT** to play 1v1 lol **OR** Smash Karts then **go somewhere else until we find out the loading issues**.
+
+
+For all you **Cookie Clicker** fans out there, **Cookie Clicker** does not disguise as Schoology with it's title. The favicon does work though so I suggest pinning your **Cookie Clicker** tab while your playing!
