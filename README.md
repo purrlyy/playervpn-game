@@ -13,3 +13,6 @@ If you **WANT** to play 1v1 lol **OR** Smash Karts then **go somewhere else unti
 
 
 For all you **Cookie Clicker** fans out there, **Cookie Clicker** does not disguise as Schoology with it's title. The favicon does work though so I suggest pinning your **Cookie Clicker** tab while your playing!
+
+# 🧱Build Now GG
+If you are a fan of the game **BuildNowGG**, then do realize that it **will not run on an older version of chromebook**, it should run **FINE** if you are on a **desktop**!
