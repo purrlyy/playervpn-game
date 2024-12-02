@@ -30,6 +30,64 @@
       overflow-x: hidden;
     }
 
+    /* Sidebar Styles */
+    .sidebar {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 200px;
+      background-color: #1c1c1c;
+      border: 2px solid #00ff00;
+      border-radius: 12px;
+      padding: 10px;
+      z-index: 1000;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .sidebar h3 {
+      color: #ff6f00;
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
+
+    .sidebar a {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: #b3b3b3;
+      margin: 8px 0;
+      padding: 5px;
+      border-radius: 8px;
+      transition: background 0.3s;
+    }
+
+    .sidebar a:hover {
+      background: rgba(255, 111, 0, 0.2);
+    }
+
+    .recommended-games {
+      margin-top: 20px;
+    }
+
+    .recommended-item {
+      display: flex;
+      align-items: center;
+      margin: 8px 0;
+      transition: transform 0.3s;
+    }
+
+    .recommended-item img {
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .recommended-item:hover {
+      transform: scale(1.05);
+    }
+
     /* Header Section */
     header {
       text-align: center;
@@ -321,6 +379,16 @@
     <!-- Add more game items here -->
   </div>
 
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar" style="display: none;">
+    <h3>Menu</h3>
+    <a href="index.html"><img src="home-icon.png" alt="Home" style="width: 20px; margin-right: 8px;"> Home</a>
+    <div class="recommended-games">
+      <h3>Recommended Games</h3>
+      <div id="recommended-items"></div>
+    </div>
+  </div>
+
   <!-- Inline JavaScript for Tab Cloak & Header Navigation -->
   <script>
     function openGame(gameFile) {
@@ -343,6 +411,60 @@
         newWindow.document.body.insertBefore(header, newWindow.document.body.firstChild);
       }, 100);
     }
+
+    // Sidebar visibility for game pages
+    if (window.location.pathname !== '/playervpn-games/index.html') {
+      document.getElementById('sidebar').style.display = 'block';
+    }
+
+    // Recommended Games Logic
+    const games = [
+      { name: "Snowrider 3D", image: "snowrider.png", link: "snowrider.html" },
+      { name: "Time Shooter 3", image: "timeshooter3.png", link: "timeshooter3.html" },
+      { name: "Smash Karts", image: "smashkarts.png", link: "smashkarts.html" },
+      { name: "Stick Duals", image: "stickdual.png", link: "stickdual.html" },
+      { name: "Mario Bros.", image: "mario.png", link: "mario.html" },
+      { name: "Soccer Game", image: "football.png", link: "football.html" },
+      { name: "Bob The Robber", image: "robber.png", link: "robber.html" },
+      { name: "Death Run 3D", image: "deathrun.png", link: "deathrun.html" },
+      { name: "AmongUs", image: "amongus.png", link: "amongus.html" },
+      { name: "Drivemad", image: "drivemad.png", link: "drivemad.html" },
+      { name: "Stick Archer", image: "archer.png", link: "archer.html" },
+      { name: "ROBLOX - DOWN", image: "robloxcover.png", link: "roblox.html" },
+      { name: "Snowball IO", image: "snowballio.png", link: "snowballio.html" },
+      { name: "GunSpin", image: "gunspin.png", link: "gunspin.html" },
+      { name: "1v1 lol", image: "//1v1lol/splash.png", link: "//1v1lol" },
+      { name: "2048", image: "2048.png", link: "2048.html" },
+      { name: "Cookie Clicker", image: "cookieclicker.png", link: "cookieclicker.html" },
+      { name: "Hole IO", image: "holeio.png", link: "holeio.html" },
+      { name: "Justfall LOL", image: "justfall.png", link: "justfall.html" },
+      { name: "FNAF", image: "fnaf1.png", link: "fnaf1.html" },
+      { name: "Basketball Stars", image: "bballstars.png", link: "bballstars.html" },
+      { name: "Bitlife.", image: "bitlife.png", link: "bitlife.html" },
+      { name: "Bloxorz", image: "bloxorz.png", link: "bloxorz.html" },
+      { name: "Cut the Rope.", image: "cuttherope.png", link: "cuttherope.html" },
+      { name: "EaglercraftX", image: "eaglercraftx.png", link: "eaglercraftx.html" },
+      { name: "BuildNow GG", image: "buildnow.png", link: "buildnow.html" },
+      { name: "Elastic man", image: "elasticman.png", link: "elasticman.html" },
+    ];
+
+    function loadRecommendedGames() {
+      const recommendedContainer = document.getElementById('recommended-items');
+      recommendedContainer.innerHTML = ''; // Clear existing content
+
+      // Shuffle games and select random ones
+      const shuffledGames = games.sort(() => 0.5 - Math.random()).slice(0, 6);
+
+      shuffledGames.forEach(game => {
+        const gameElement = document.createElement('div');
+        gameElement.className = 'recommended-item';
+        gameElement.innerHTML = `<a href="${game.link}"><img src="${game.image}" alt="${game.name}"> ${game.name}</a>`;
+        recommendedContainer.appendChild(gameElement);
+      });
+    }
+
+    // Load recommended games when the sidebar is rendered
+    window.onload = loadRecommendedGames;
   </script>
 </body>
 </html>
