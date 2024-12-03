@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home | Schoology</title>
+  </head>
+  <body>
+    <script>
+      window.onload = function() {
+        const url = prompt("URL?");
+        if (window === window.top) {
+    const aboutBlankWindow = window.open('about:blank');
+    const iframe = document.createElement("iframe");
+    iframe.src = url;
+    iframe.style.width = "100%";
+    iframe.style.height = "100%";
+    iframe.style.border = "none";
+    iframe.style.frameborder = "0";
+    iframe.style.marginwidth = "0";
+    iframe.style.position = "fixed";
+    iframe.style.inset = "0px";
+    iframe.style.outline = "none";
+    iframe.style.scrolling = "auto";
+    aboutBlankWindow.document.body.appendChild(iframe);
+    window.location.href = "https://google.com"
+  } else {
+    console.log("already in about:blank")
+  }
+      }
+
+    </script>
+  </body>
+</html>
