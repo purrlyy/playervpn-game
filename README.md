@@ -16,3 +16,6 @@ For all you **Cookie Clicker** fans out there, **Cookie Clicker** does not disgu
 
 # 🧱Build Now GG
 If you are a fan of the game **BuildNowGG**, then do realize that it **will not run on an older version of chromebook**, it should run **FINE** if you are on a **desktop**!
+
+# 👨‍💻 Changelog
+**Added a NEW about:blank cloaker**
