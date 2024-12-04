@@ -50,6 +50,33 @@
       transform: scale(1.05);
     }
 
+    /* GitHub Button Styles */
+    .github-button {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      background-color: black; /* Black circle */
+      border-radius: 50%; /* Circular shape */
+      width: 50px; /* Diameter of circle */
+      height: 50px; /* Diameter of circle */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      transition: transform 0.2s;
+    }
+
+    .github-button:hover {
+      transform: scale(1.1); /* Slightly increase size on hover */
+    }
+
+    .github-icon {
+      width: 24px; /* Width of the GitHub icon */
+      height: 24px; /* Height of the GitHub icon */
+    }
+
     /* Search Input Styles */
     .search-container {
       margin-top: 20px;
@@ -355,7 +382,7 @@
 
   <!-- A:B Cloaker Button -->
   <button class="cloak-button" onclick="window.location.href='/playervpn-games/aboutblank'">A:B Cloaker</button>
-  
+
   <!-- Settings Icon (placed under the A:B Cloaker Button) -->
   <button class="cloak-button" id="settings-button" style="top: 70px;" onclick="openSettings()">⚙️ Settings</button>
 
@@ -381,7 +408,6 @@
       <h2>Smash Karts</h2>
       <p>Mario Kart but better!</p>
     </div>
-    <!-- More game items here as per the original code... -->
     <div class="game-item" onclick="openGame('stickdual.html')">
       <img src="stickdual.png" alt="Stickman Duals">
       <h2>Stick Duals</h2>
@@ -547,7 +573,11 @@
       <h2>Doodle Jump</h2>
       <p>Doodle Jump. A classic.</p>
     </div>
+  </div>
 
+  <!-- GitHub Button -->
+  <div class="github-button" onclick="window.open('https://github.com/PlayerVPN/playervpn-games', '_blank')">
+    <img src="https://sasountorossian.github.io/Library/images/Github%20Logo.png" class="github-icon" alt="GitHub Icon">
   </div>
 
   <!-- Settings Modal -->
