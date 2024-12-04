@@ -50,6 +50,55 @@
       background-color: #ff6f00;
     }
 
+    /* Search Input Styles */
+    .search-container {
+      margin-top: 20px;
+      width: 100%;
+      max-width: 600px;
+      position: relative;
+    }
+    
+    .search-input {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #ff8000;
+      border-radius: 10px;
+      background-color: #1c1c1c;
+      color: #e6e6e6;
+      font-size: 1em;
+      transition: border 0.3s;
+    }
+
+    .search-input:focus {
+      outline: none;
+      border-color: #ff6f00;
+    }
+
+    .search-results {
+      position: absolute;
+      background: #1c1c1c;
+      border-radius: 10px;
+      border: 2px solid #ff8000;
+      width: 100%;
+      max-height: 200px;
+      overflow-y: auto;
+      z-index: 1000;
+      display: none; /* hidden by default */
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+    }
+
+    .search-result-item {
+      padding: 10px;
+      cursor: pointer;
+      border-bottom: 1px solid rgba(255, 111, 0, 0.5);
+      color: #e6e6e6;
+      transition: background 0.3s;
+    }
+
+    .search-result-item:hover {
+      background: rgba(255, 111, 0, 0.2);
+    }
+
     /* Sidebar Styles */
     .sidebar {
       position: fixed;
@@ -261,10 +310,16 @@
     <h2>Recommended screen size: 75%</h2>
   </header>
 
+  <!-- Game Search Bar -->
+  <div class="search-container">
+    <input type="text" class="search-input" placeholder="Search for a game..." oninput="filterGames()">
+    <div class="search-results" id="search-results"></div>
+  </div>
+
   <!-- A:B Cloaker Button -->
   <button class="cloak-button" onclick="window.location.href='/playervpn-games/aboutblank'">A:B Cloaker</button>
   
-  <div class="games-container">
+  <div class="games-container" id="games-container">
     <!-- Game items with links to respective pages -->
     <div class="game-item" onclick="openGame('snowrider.html')">
       <img src="snowrider.png" alt="Snowrider">
@@ -404,7 +459,7 @@
     <div class="game-item" onclick="openGame('retrohaunt.html')">
       <img src="retrohaunt.png" alt="hanted;retro">
       <h2>Retro Haunt</h2>
-      <p>A fun retro game, intertain yourself</p>
+      <p>A fun retro game, entertain yourself</p>
     </div>
     <div class="game-item" onclick="openGame('chromedino.html')">
       <img src="chromedino.png" alt="chrome;dino">
@@ -419,7 +474,7 @@
     <div class="game-item" onclick="openGame('tunnelrush.html')">
       <img src="tunnelrush.png" alt="slope">
       <h2>Tunnel Rush</h2>
-      <p>Dodge obtacles in the tunnel!</p>
+      <p>Dodge obstacles in the tunnel!</p>
     </div>
     <!-- Add more game items here -->
   </div>
@@ -455,6 +510,35 @@
 
         newWindow.document.body.insertBefore(header, newWindow.document.body.firstChild);
       }, 100);
+    }
+
+    function filterGames() {
+      const searchInput = document.querySelector('.search-input');
+      const filter = searchInput.value.toLowerCase();
+      const gamesContainer = document.getElementById('games-container');
+      const gameItems = gamesContainer.getElementsByClassName('game-item');
+      const searchResults = document.getElementById('search-results');
+      
+      // Clear previous search results
+      searchResults.innerHTML = '';
+      searchResults.style.display = 'none'; // Hide search results initially
+      
+      // Loop through games and display matching items
+      for (let i = 0; i < gameItems.length; i++) {
+        const gameTitle = gameItems[i].querySelector('h2').textContent.toLowerCase();
+        
+        if (gameTitle.includes(filter) && filter !== '') {
+          const resultItem = document.createElement('div');
+          resultItem.className = 'search-result-item';
+          resultItem.innerHTML = `<strong>${gameItems[i].querySelector('h2').textContent}</strong>`;
+          resultItem.onclick = () => openGame(gameItems[i].onclick.toString().match(/'(.*?)'/)[1]); // Open game on click
+          searchResults.appendChild(resultItem);
+        }
+      }
+
+      if (searchResults.innerHTML) {
+        searchResults.style.display = 'block'; // Show results if there are matches
+      }
     }
 
     // Sidebar visibility for game pages
