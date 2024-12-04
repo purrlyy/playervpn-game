@@ -1,2 +1,113 @@
-<!doctype html>
-<h1>Welcome! Request a game here: mailto://opal.ephtv.networks@outlook.com</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Glowing Form</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #1d1d1d, #3a3a3a);
+            font-family: 'Arial', sans-serif;
+        }
+
+        .form-container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(15px);
+            width: 350px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .form-container:hover {
+            transform: scale(1.05);
+        }
+
+        h2 {
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            resize: none;
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            transition: background 0.3s;
+        }
+
+        textarea:focus {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .submit-btn {
+            display: none;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .submit-btn.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Send a Message</h2>
+    <textarea id="message" placeholder="Type your message here..." oninput="showButton()"></textarea>
+    <button class="submit-btn" id="submitBtn" onclick="sendMessage()">Send</button>
+</div>
+
+<script>
+    function showButton() {
+        const messageBox = document.getElementById('message');
+        const submitBtn = document.getElementById('submitBtn');
+        if (messageBox.value.trim() !== '') {
+            submitBtn.classList.add('show');
+        } else {
+            submitBtn.classList.remove('show');
+        }
+    }
+
+    function sendMessage() {
+        const messageBox = document.getElementById('message');
+        const message = encodeURIComponent(messageBox.value.trim());
+        const email = 'opal.ephtv.networks@outlook.com';
+        const subject = 'Message from Contact Form';
+        const mailtoLink = `mailto:${email}?subject=${subject}&body=${message}`;
+
+        window.location.href = mailtoLink;
+
+        // Clear the message box after sending
+        messageBox.value = '';
+        showButton();
+    }
+</script>
+
+</body>
+</html>
