@@ -530,6 +530,7 @@
           <option value="schoology">Schoology</option>
           <option value="google">Google</option>
           <option value="google_classroom">Google Classroom</option>
+          <option value="edia">Edia</option> <!-- New Edia option -->
         </select>
       </div>
       <button class="cloak-button" onclick="closeSettings()">Close Settings</button>
@@ -622,7 +623,11 @@
           break;
         case 'google_classroom':
           title = "Home | Google Classroom";
-          favicon = 'googleclassroomfavicon.png';
+          favicon = 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Google_Classroom_icon.svg/2048px-Google_Classroom_icon.svg.png';
+          break;
+        case 'edia':
+          title = "Edia";
+          favicon = 'ediamath.png'; // Set favicon for Edia
           break;
         default:
           title = "PlayerVPN";
