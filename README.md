@@ -4,6 +4,9 @@ We are proud to release our new project PlayerVPN games. Completely out of html,
 # 🚀 How to clone?
 You can QUICKLY fork this repository and deploy through ANYTHING!
 
+# 🎮 Deployment
+**PlayerVPN Games is super easy to clone**, this can be hosted anywhere, even **static** site hosts!
+
 # ⚠️ Issues.
 There are A FEW issues:
 If you play **AmongUS**, just know **if your device can not run WEBGL it will completely mess up the WHOLE website** for you!
