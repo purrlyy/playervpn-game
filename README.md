@@ -19,3 +19,5 @@ If you are a fan of the game **BuildNowGG**, then do realize that it **will not 
 
 # 👨‍💻 Changelog
 **Added a NEW about:blank cloaker**
+
+**Added a NEW tab cloak feature!**
