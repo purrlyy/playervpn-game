@@ -57,7 +57,7 @@
       max-width: 600px;
       position: relative;
     }
-    
+
     .search-input {
       width: 100%;
       padding: 10px;
@@ -97,6 +97,55 @@
 
     .search-result-item:hover {
       background: rgba(255, 111, 0, 0.2);
+    }
+
+    /* Settings Modal Styles */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9); /* Pure black */
+      z-index: 2000;
+      overflow: auto;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background-color: #1c1c1c;
+      border-radius: 15px;
+      width: 80%; /* Size of the box */
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      color: #ffffff;
+    }
+
+    .settings-title {
+      font-size: 2em;
+      margin-bottom: 15px;
+    }
+
+    /* Dropdown Styles */
+    .dropdown {
+      margin-bottom: 20px;
+    }
+
+    .dropdown select {
+      width: 100%;
+      padding: 10px;
+      border: 2px solid #ff8000;
+      border-radius: 10px;
+      background-color: #1c1c1c;
+      color: #e6e6e6;
+      font-size: 1em;
+    }
+
+    .dropdown select:focus {
+      outline: none;
+      border-color: #ff6f00;
     }
 
     /* Sidebar Styles */
@@ -207,7 +256,6 @@
       display: flex;
       flex-direction: column;
       text-align: center;
-      transform: scale(1);
     }
 
     .game-item:hover {
@@ -293,6 +341,11 @@
       header p {
         font-size: 1em;
       }
+
+      .cloak-button {
+        top: 70px; /* Lower the button if needed */
+        right: 20px;
+      }
     }
 
     @media (max-width: 480px) {
@@ -318,7 +371,10 @@
 
   <!-- A:B Cloaker Button -->
   <button class="cloak-button" onclick="window.location.href='/playervpn-games/aboutblank'">A:B Cloaker</button>
-  
+
+  <!-- Settings Icon (placed under the A:B Cloaker Button) -->
+  <button class="cloak-button" id="settings-button" style="top: 70px;" onclick="openSettings()">⚙️ Settings</button>
+
   <div class="games-container" id="games-container">
     <!-- Game items with links to respective pages -->
     <div class="game-item" onclick="openGame('snowrider.html')">
@@ -466,7 +522,7 @@
       <h2>Chrome Dino</h2>
       <p>Play the Google Dino offline game!</p>
     </div>
-    <div class="game-item" onclick="openGame('slope')">
+    <div class="game-item" onclick="openGame('slope.html')">
       <img src="slopegame.png" alt="slope">
       <h2>Slope Game</h2>
       <p>A fantastic fullscreen speed run game</p>
@@ -477,6 +533,22 @@
       <p>Dodge obstacles in the tunnel!</p>
     </div>
     <!-- Add more game items here -->
+  </div>
+
+  <!-- Settings Modal -->
+  <div class="modal" id="settings-modal">
+    <div class="modal-content">
+      <h2 class="settings-title">Tab Cloak Settings</h2>
+      <div class="dropdown">
+        <select id="tab-cloak-select" onchange="changeTabCloak()">
+          <option value="default">Select Tab Cloak</option>
+          <option value="schoology">Schoology</option>
+          <option value="google">Google</option>
+          <option value="google_classroom">Google Classroom</option>
+        </select>
+      </div>
+      <button class="cloak-button" onclick="closeSettings()">Close Settings</button>
+    </div>
   </div>
 
   <!-- Sidebar -->
@@ -541,10 +613,74 @@
       }
     }
 
+    function openSettings() {
+      document.getElementById('settings-modal').style.display = 'flex';
+    }
+
+    function closeSettings() {
+      document.getElementById('settings-modal').style.display = 'none';
+    }
+
+    function changeTabCloak() {
+      const selectedValue = document.getElementById('tab-cloak-select').value;
+      let title, favicon;
+
+      // Determine the title and favicon based on selection
+      switch (selectedValue) {
+        case 'schoology':
+          title = "Home | Schoology";
+          favicon = 'https://www.betterbuys.com/wp-content/uploads/2016/11/schoology-logo.png';
+          break;
+        case 'google':
+          title = "Home | Google";
+          favicon = 'https://www.google.com/favicon.ico';
+          break;
+        case 'google_classroom':
+          title = "Home | Google Classroom";
+          favicon = 'googleclassroomfavicon.png';
+          break;
+        default:
+          title = "Home | PlayerVPN";
+          favicon = 'https://i.ibb.co/N75vkX7/PVPN.png';
+          break;
+      }
+      
+      // Save settings to localStorage
+      localStorage.setItem("tabTitle", title);
+      localStorage.setItem("tabFavicon", favicon);
+
+      // Update the document title and favicon
+      document.title = title;
+
+      const link = document.querySelector("link[rel*='icon']") || document.createElement('link');
+      link.rel = 'icon';
+      link.href = favicon;
+      document.getElementsByTagName('head')[0].appendChild(link);
+    }
+
     // Sidebar visibility for game pages
     if (window.location.pathname !== '/playervpn-games/index.html') {
       document.getElementById('sidebar').style.display = 'block';
     }
+
+    // Load settings from localStorage on page load
+    window.onload = function() {
+      const title = localStorage.getItem("tabTitle");
+      const favicon = localStorage.getItem("tabFavicon");
+
+      // Update title and favicon if saved
+      if (title) {
+        document.title = title;
+      }
+      if (favicon) {
+        const link = document.createElement('link');
+        link.rel = 'icon';
+        link.href = favicon;
+        document.head.appendChild(link);
+      }
+
+      loadRecommendedGames();
+    };
 
     // Recommended Games Logic
     const games = [
@@ -595,9 +731,6 @@
         recommendedContainer.appendChild(gameElement);
       });
     }
-
-    // Load recommended games when the sidebar is rendered
-    window.onload = loadRecommendedGames;
   </script>
 
 </body>
