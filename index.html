@@ -4,6 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="manifest" href="manifest.json"> <!-- Manifest file -->
   <title>PlayerVPN games</title>
 
   <!-- Google Fonts -->
@@ -419,7 +421,7 @@
       <p>Win. Just win.</p>
     </div>
     <div class="game-item" onclick="openGame('football.html')">
-      <img src="football.png" alt="foorball">
+      <img src="football.png" alt="Football">
       <h2>Soccer Game</h2>
       <p>Score goals!</p>
     </div>
@@ -484,7 +486,7 @@
       <p>Click the Cookie</p>
     </div>
     <div class="game-item" onclick="openGame('holeio.html')">
-      <img src="holeio.png" alt="Hole Io">
+      <img src="holeio.png" alt="Hole IO">
       <h2>Hole IO</h2>
       <p>Eat items, people, and MORE in Hole IO</p>
     </div>
@@ -573,7 +575,7 @@
       <h2>Doodle Jump</h2>
       <p>Doodle Jump. A classic.</p>
     </div>
-  <div class="game-item" onclick="openGame('bubbleshooter.html')">
+    <div class="game-item" onclick="openGame('bubbleshooter.html')">
       <img src="bubbleshooter.png" alt="shoot;bubble">
       <h2>Bubble Shooter</h2>
       <p>Shoot bubbles.</p>
@@ -716,6 +718,17 @@
       link.rel = 'icon';
       link.href = favicon;
       document.getElementsByTagName('head')[0].appendChild(link);
+    }
+
+    // Service Worker registration
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js').then((registration) => {
+          console.log('Service Worker registered with scope:', registration.scope);
+        }).catch((error) => {
+          console.log('Service Worker registration failed:', error);
+        });
+      });
     }
 
     // Sidebar visibility for game pages
