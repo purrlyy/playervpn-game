@@ -7,12 +7,12 @@
   "theme_color": "#1e90ff",
   "icons": [
     {
-      "src": "nexus.png",
+      "src": "PVPNdownload.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "nexus.png",
+      "src": "PVPNdownload.png",
       "sizes": "512x512",
       "type": "image/png"
     }
