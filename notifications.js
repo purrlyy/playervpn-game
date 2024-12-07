@@ -21,9 +21,9 @@ window.onload = function() {
   // Handle tab visibility changes
   document.addEventListener("visibilitychange", function() {
     if (document.hidden) {
-      showNotification("You have been gone a while, come enjoy some games!");
+      showNotification("PlayerVPN Games", "all the games you want...");
     } else {
-      showNotification("Welcome Back!", "Come play!!!");
+      showNotification("PlayerVPN Games", "all the games you want...");
     }
   });
 };
@@ -39,10 +39,4 @@ function showNotification(title, body) {
       window.focus();  // Bring the tab into focus when the notification is clicked
     };
   }
-}
-
-function openGame(gameFile) {
-  showNotification("Game Started", "You have entered a game!"); // Notify when a game is opened
-  const newWindow = window.open(gameFile, '_blank');
-  // Existing logic...
 }
