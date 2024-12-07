@@ -33,3 +33,5 @@ If you are a fan of the game **BuildNowGG**, then do realize that it **will not 
 **Added a NEW tab cloak feature!**
 
 **Added the Manifest.json file and sw.js file to be able to download PVPN Games**
+
+**Added Notifications.js (kind of broken not going to lie!), if you get the option to turn on, decline!
