@@ -32,6 +32,23 @@
       overflow-x: hidden;
     }
 
+    /* Visit Counter Styles */
+    .visit-counter {
+      background-color: rgba(30, 30, 47, 0.9);
+      border-radius: 25px; /* Curved corners */
+      padding: 15px 30px;
+      color: white;
+      font-size: 1.5em;
+      position: fixed; /* Fixed positioning */
+      top: 10px; /* Space from the top */
+      left: 50%;
+      transform: translateX(-50%); /* Center horizontally */
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+      z-index: 2000; /* High z-index to stay above other content */
+    }
+
     /* Button Styles */
     .cloak-button {
       position: fixed;
@@ -376,6 +393,9 @@
     <h2>Recommended screen size: 75%</h2>
   </header>
 
+  <!-- Visit Counter -->
+  <div class="visit-counter" id="visit-counter"></div>
+
   <!-- Game Search Bar -->
   <div class="search-container">
     <input type="text" class="search-input" placeholder="Search for a game..." oninput="filterGames()">
@@ -631,6 +651,22 @@
 
   <!-- Inline JavaScript for Tab Cloak & Header Navigation -->
   <script>
+    async function updateVisitCounter() {
+      // Increment visit count on the server
+      await fetch('/api/visit-count', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({}),
+      });
+
+      // Fetch the updated visit count
+      const response = await fetch('/api/visit-count');
+      const data = await response.json();
+      document.getElementById('visit-counter').textContent = `Total Visits: ${data.count}`;
+    }
+
     function openGame(gameFile) {
       const newWindow = window.open(gameFile, '_blank');
 
@@ -748,6 +784,8 @@
 
     // Load settings from localStorage on page load
     window.onload = function() {
+      updateVisitCounter(); // Update visit counter on page load
+
       const title = localStorage.getItem("tabTitle");
       const favicon = localStorage.getItem("tabFavicon");
 
@@ -823,6 +861,6 @@
       });
     }
   </script>
-  
+
 </body>
 </html>
