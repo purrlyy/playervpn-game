@@ -29,6 +29,8 @@ If you are a fan of the game **BuildNowGG**, then do realize that it **will not 
 
 **4: Mario-bros NEW in folder. (New and not gonna link to the website until fixed)**
 
+**4: Subway Surfers in folder. (New and not gonna link to the website until fixed)**
+
 # 👨‍💻 Changelog
 **Added a NEW about:blank cloaker**
 
