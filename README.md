@@ -23,8 +23,6 @@ If you are a fan of the game **BuildNowGG**, then do realize that it **will not 
 # 🔻Down Games
 **1: Roblox**
 
-**2: 1v1lol**
-
 **3: Flappy Bird (New and not gonna link to the website until fixed)**
 
 **4: Mario-bros NEW in folder. (New and not gonna link to the website until fixed)**
