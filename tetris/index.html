@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Home | Schoology</title>
+	<script src="https://kit.fontawesome.com/e1af60249d.js" crossorigin="anonymous">
+
+	</script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fredoka One">
+	<link rel="icon" href="../icons/tetris.png">
+	<style>
+		html,
+		body {
+			height: 100%;
+			margin: 0;
+			text-align: center;
+		}
+
+		body {
+			background: #802060;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		canvas {
+			border: 6px solid white;
+		}
+
+		input,
+		button {
+			border: 3px solid white;
+			background: #800060;
+			border-radius: 5px;
+			color: white;
+			height: 40px;
+			width: 140px;
+			cursor: pointer;
+			transition: .2s;
+			margin: 3px;
+			font-family: Fredoka One;
+			font-weight: 0px;
+			text-align: center;
+		}
+
+		input {
+			width: 130px;
+			height: 32px;
+		}
+
+		input:hover,
+		button:hover {
+			border: 4px solid white;
+			background: #ff00c0;
+			font-weight: bolder;
+		}
+
+		p {
+			color: white;
+			font-family: Fredoka One;
+		}
+
+		.title {
+			font-size: 60px;
+			margin: 0;
+		}
+
+		::placeholder {
+			color: #ccc;
+		}
+	</style>
+</head>
+
+<body>
+	<div hidden id="game">
+		<canvas class="small" id="hold" style="margin-bottom: 320px" width="80" height="80"></canvas>
+		<canvas id="tetris" width="200" height="400"></canvas>
+        <canvas class="small" id="block" width="80" height="400"></canvas>
+        <p id="scores"></p>
+    </div>
+	<div id="start">
+		<p class="title">Tetris</p><br>
+        <button class="start_but" id="Marathon"><i class="fas fa-clock"></i>&nbsp; Marathon</button><br>
+        <button class="start_but" id="Practice"><i class="fas fa-gamepad"></i>&nbsp; Practice</button><br>
+        <button id="leave_but"><i class="fas fa-sign-out-alt"></i>&nbsp; Exit</button>
+    </div>
+    <div hidden id="settings">
+        <p class="title" style="font-size: 15px; margin-top: 10px;">Hue 1</p>
+        <input id="color1" placeholder="Color Hue" max=360 min=0 type="Number"></input><br>
+        <p class="title" style="font-size: 15px; margin-top: 10px;">Hue 2</p>
+        <input id="color2" placeholder="Color Hue" max=360 min=0 type="Number"></input><br>
+        <p class="title" style="font-size: 15px; margin-top: 10px;">Grid</p>
+        <input id="grid" type="checkbox"></input><br>
+        <button id="but_back">Back</button>
+    </div>
+    <div hidden id="end">
+        <p class="title">Game Over!</p>
+        <p id="score"></p>
+        <button id="but_back">Back</button>
+    </div>
+    <script src="tetris.js"></script>
+</body>
+
+</html>
