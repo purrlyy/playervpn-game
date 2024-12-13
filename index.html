@@ -921,6 +921,9 @@
             document.getElementById('game-modal').style.display = 'block'; // Show modal
             document.getElementById('download-button').setAttribute('href', downloadFile); // Set download link
             document.getElementById('download-button').setAttribute('download', downloadFile); // Download attribute
+            document.getElementById('open-new-tab-button').onclick = function () {
+                window.open(gameFile, '_blank'); // Open game in new tab
+            };
         }
 
         function closeGame() {
