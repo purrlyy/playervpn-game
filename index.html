@@ -1,5 +1,4 @@
-<link rel="shortcut icon" type="image/png" href="https://i.ibb.co/j52f5kD/pvpn-favi.png
-">
+<link rel="shortcut icon" type="image/png" href="https://i.ibb.co/j52f5kD/pvpn-favi.png">
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -364,7 +363,7 @@
 
     .game-iframe {
       width: 100%;
-      height: calc(100% - 50px); /* Leave space for the sidebar */
+      height: calc(100% - 60px); /* Leave space for the sidebar */
       border: none;
     }
     
@@ -395,6 +394,27 @@
     .game-sidebar button:hover {
       transform: scale(1.1);
     }
+
+    .game-modal-buttons {
+      display: flex;
+      justify-content: center; /* Center the buttons */
+      margin-top: 10px; /* Space from the top */
+    }
+
+    .game-modal-buttons button {
+      margin: 0 10px;
+      padding: 10px;
+      color: white;
+      background-color: #1e90ff; /* Button color */
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .game-modal-buttons button:hover {
+      background-color: #1c86ee; /* Darker shade on hover */
+    }
   </style>
 </head>
 <body>
@@ -416,7 +436,6 @@
 
   <div class="games-container" id="games-container">
     <!-- Game items -->
-
     <div class="game-item" onclick="openGame('requestgame.html')">
       <img src="requestgame.png" alt="Game;request">
       <h2>Request.</h2>
@@ -577,7 +596,7 @@
       <h2>Slope Game</h2>
       <p>A fantastic fullscreen speed run game</p>
     </div>
-      <div class="game-item" onclick="openGame('slope-2')">
+    <div class="game-item" onclick="openGame('slope-2')">
       <img src="slope-2.png" alt="Slope-2">
       <h2>Slope Game 2</h2>
       <p>A fantastic fullscreen speed run game. The 2nd.</p>
@@ -622,62 +641,62 @@
       <h2>Evil Glitch</h2>
       <p>Fun, addictive, Glitched</p>
     </div>
-      <div class="game-item" onclick="openGame('geometrydash.html')">
+    <div class="game-item" onclick="openGame('geometrydash.html')">
       <img src="geometrydash.png" alt="geometry;dash">
       <h2>Geometry Dash</h2>
       <p>Not really learning :)</p>
     </div>
-      <div class="game-item" onclick="openGame('cubefield')">
+    <div class="game-item" onclick="openGame('cubefield')">
       <img src="cubefieldgame.png" alt="field;cube">
       <h2>Cube Field</h2>
-      <p>A game where u must dodge sqaures :)</p>
+      <p>A game where u must dodge squares :)</p>
     </div>
-      <div class="game-item" onclick="openGame('backrooms')">
+    <div class="game-item" onclick="openGame('backrooms')">
       <img src="backrooms.png" alt="rooms;backrooms">
       <h2>Back Rooms</h2>
-      <p>Play our most 3d game here:)</p>
+      <p>Play our most 3D game here:)</p>
     </div>
-      <div class="game-item" onclick="openGame('paper-3')">
+    <div class="game-item" onclick="openGame('paper-3')">
       <img src="paperio3.png" alt="paper;io3">
       <h2>Paper io 3D</h2>
       <p>Fun mobile game, works in browser don't worry :)</p>
     </div>
-      <div class="game-item" onclick="openGame('territorial.html')">
+    <div class="game-item" onclick="openGame('territorial.html')">
       <img src="territorial.png" alt="io;territorial">
       <h2>Territorial IO</h2>
       <p>Engaging, fun, game for all devices.</p>
     </div>
-      <div class="game-item" onclick="openGame('cluster-rush')">
+    <div class="game-item" onclick="openGame('cluster-rush')">
       <img src="clusterrush.png" alt="rush;cluster">
       <h2>Cluster Rush</h2>
       <p>Takes a little while to load :)</p>
     </div>
-      <div class="game-item" onclick="openGame('slitherio-online.html')">
+    <div class="game-item" onclick="openGame('slitherio-online.html')">
       <img src="slitherio-online.png" alt="Slither;io-online">
       <h2>SlitherIO Online</h2>
       <p>Scratch copy of unlocked SlitherIO :)</p>
     </div>
-      <div class="game-item" onclick="openGame('baldis-basics')">
+    <div class="game-item" onclick="openGame('baldis-basics')">
       <img src="baldis-basics.png" alt="Basics;Baldis">
       <h2>Baldis Basics</h2>
       <p>Play a fun WebGL Game, Baldis Basics :)</p>
     </div>
-      <div class="game-item" onclick="openGame('motox3m.html')">
+    <div class="game-item" onclick="openGame('motox3m.html')">
       <img src="motox3m.png" alt="x3m;moto">
       <h2>Moto X3M</h2>
       <p>Play the fun original Moto X3M Game</p>
     </div>
-      <div class="game-item" onclick="openGame('angrybirds.html')">
+    <div class="game-item" onclick="openGame('angrybirds.html')">
       <img src="angrybirds.png" alt="birds;angry">
       <h2>Angry Birds</h2>
       <p>Throw birds at objects ;)</p>
     </div>
-      <div class="game-item" onclick="openGame('portal.html')">
+    <div class="game-item" onclick="openGame('portal.html')">
       <img src="portal.png" alt="portal;game">
       <h2>Portal</h2>
       <p>Play the fun Portal game. (Flash version) ;)</p>
     </div>
-      <div class="game-item" onclick="openGame('therealsnakeio.html')">
+    <div class="game-item" onclick="openGame('therealsnakeio.html')">
       <img src="therealsnakeio.png" alt="snake;iogame">
       <h2>The REAL SlitherIO</h2>
       <p>The non-scratch version of Slitherio on PVPN games.</p>
@@ -692,27 +711,27 @@
       <h2>Tiny Fishing</h2>
       <p>The super fun ultimate so so so cool game!</p>
     </div>
-      <div class="game-item" onclick="openGame('acheivmentunlocked.html')">
+    <div class="game-item" onclick="openGame('acheivmentunlocked.html')">
       <img src="achievementunlocked.png" alt="unlocked;game">
       <h2>Achievement Unlocked</h2>
       <p>Something!</p>
     </div>
-      <div class="game-item" onclick="openGame('monkeymart.html')">
+    <div class="game-item" onclick="openGame('monkeymart.html')">
       <img src="monkeymart.png" alt="mart;monkey">
       <h2>Monkey Mart</h2>
       <p>Fun.</p>
     </div>
-      <div class="game-item" onclick="openGame('stack.html')">
+    <div class="game-item" onclick="openGame('stack.html')">
       <img src="stack.png" alt="stack">
       <h2>Stack.</h2>
-      <p>The blocks get smaller everytime you miss :)</p>
+      <p>The blocks get smaller every time you miss :)</p>
     </div>
-      <div class="game-item" onclick="openGame('stickmanhook.html')">
+    <div class="game-item" onclick="openGame('stickmanhook.html')">
       <img src="stickmanhook.png" alt="hook;stickman">
       <h2>Stickman Hook</h2>
       <p>How far can you make it?</p>
     </div>
-      <div class="game-item" onclick="openGame('supermario64.html')">
+    <div class="game-item" onclick="openGame('supermario64.html')">
       <img src="supermario64.png" alt="mario;super">
       <h2>Super Mario 64</h2>
       <p>Save Princess Peach!</p>
@@ -727,6 +746,10 @@
       <button onclick="window.open('https://learn.lcps.org/', '_blank')">🔑</button>
     </div>
     <iframe class="game-iframe" id="game-iframe" src=""></iframe>
+    <div class="game-modal-buttons">
+      <button id="download-button" onclick="downloadGame()">Download Game</button>
+      <button id="open-new-tab-button" onclick="openGameInNewTab()">Open in New Tab</button>
+    </div>
   </div>
 
   <!-- GitHub Button -->
@@ -894,6 +917,13 @@
     function openGame(gameFile) {
       document.getElementById('game-iframe').src = gameFile; // Set the source of iframe
       document.getElementById('game-modal').style.display = 'block'; // Show modal
+      // Set download and new tab URLs
+      document.getElementById('download-button').onclick = function () {
+        window.location.href = gameFile; // You can change this logic based on how you handle downloads
+      };
+      document.getElementById('open-new-tab-button').onclick = function () {
+        window.open(gameFile, '_blank'); // Open in new tab
+      };
     }
 
     function closeGame() {
@@ -1044,8 +1074,8 @@
       { name: "Cube Field", image: "cubefieldgame.png", link: "cubefield" },
       { name: "Backrooms", image: "backrooms.png", link: "backrooms" },
       { name: "Paperio 3D", image: "paperio3.png", link: "paper-3" },
-      { name: "Territorial IO", image: "territorial.png", link: "teritorial.html" },
-      { name: "Cluster Rush", image: "clusterrush.png", link: "cluser-rush" },
+      { name: "Territorial IO", image: "territorial.png", link: "territorial.html" },
+      { name: "Cluster Rush", image: "clusterrush.png", link: "cluster-rush" },
       { name: "SlitherIO Online", image: "slitherio-online.png", link: "slitherio-online.html" },
       { name: "Baldis Basics", image: "baldis-basics.png", link: "baldis-basics" },
       { name: "Moto X3M", image: "motox3m.png", link: "motox3m.html" },
@@ -1074,6 +1104,18 @@
         gameElement.innerHTML = `<a href="${game.link}"><img src="${game.image}" alt="${game.name}"> ${game.name}</a>`;
         recommendedContainer.appendChild(gameElement);
       });
+    }
+
+    function downloadGame() {
+      // Logic to download the game goes here
+      // For example, you might create an anchor element and click it programmatically
+      alert('Download logic not implemented for this example.'); // Placeholder
+    }
+
+    function openGameInNewTab() {
+      // Logic to open the game in a new tab
+      const gameFile = document.getElementById('game-iframe').src; // Get current game file
+      window.open(gameFile, '_blank'); // Open in new tab
     }
   </script>
 
