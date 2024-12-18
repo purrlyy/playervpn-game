@@ -47,6 +47,41 @@
             z-index: 1;
         }
 
+        /* Welcome Overlay */
+        #welcome-overlay {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index: 3000; /* Sit above all content */
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+        }
+
+        #welcome-content {
+            text-align: center;
+            color: white;
+            opacity: 0;
+            transition: opacity 1s ease-in-out 1s; /* Start fading in after 1s */
+        }
+
+        /* Smooth Reveal Styles */
+        .reveal {
+            opacity: 0; /* Initially hidden */
+            transform: translateY(20px); /* Shift down */
+            transition: opacity 0.8s ease, transform 0.8s ease; /* Smooth transitions */
+        }
+
+        .reveal.visible {
+            opacity: 1; /* Show content */
+            transform: translateY(0); /* Reset position */
+        }
+
         /* Banner Image */
         .banner img {
             width: 100%; /* Width covering full width */
@@ -497,6 +532,15 @@
 <body>
     <div id="particles-js"></div>
 
+    <!-- Welcome Overlay -->
+    <div id="welcome-overlay">
+        <div id="welcome-content">
+            <img src="logoorbit.png" alt="Welcome Image" style="max-width: 80%; height: auto;"> <!-- Replace with your welcome image URL -->
+            <h2>Welcome, your freedom starts now</h2>
+            <h2>Click anywhere to play games</h2>
+        </div>
+    </div>
+
     <!--Banner Image-->
     <div class="banner">
         <img src="bannerimage.png" alt="Lights"> <!-- Replace with your banner image URL -->
@@ -538,322 +582,322 @@
 
     <div class="games-container" id="games-container">
         <!-- Game items -->
-        <div class="game-item" onclick="openGame('requestgame.html', 'requestgame.html')">
+        <div class="game-item reveal" onclick="openGame('requestgame.html', 'requestgame.html')">
             <img src="requestgame.png" alt="Game;request">
             <h2>Request.</h2>
             <p>Request a GAME!</p>
         </div>
-        <div class="game-item" onclick="openGame('snowrider.html', 'snowrider.html')">
+        <div class="game-item reveal" onclick="openGame('snowrider.html', 'snowrider.html')">
             <img src="snowrider.png" alt="Snowrider">
             <h2>Snowrider 3D</h2>
             <p>Ride through the SnowRider world and get your best high score!</p>
         </div>
-        <div class="game-item" onclick="openGame('timeshooter3.html', 'timeshooter3.html')">
+        <div class="game-item reveal" onclick="openGame('timeshooter3.html', 'timeshooter3.html')">
             <img src="timeshooter3.png" alt="Time Shooter 3">
             <h2>Time Shooter 3</h2>
             <p>Time Shooter.</p>
         </div>
-        <div class="game-item" onclick="openGame('smashkarts.html', 'smashkarts.html')">
+        <div class="game-item reveal" onclick="openGame('smashkarts.html', 'smashkarts.html')">
             <img src="smashkarts.png" alt="Smash Karts">
             <h2>Smash Karts</h2>
             <p>Mario Kart but better!</p>
         </div>
-        <div class="game-item" onclick="openGame('stickdual.html', 'stickdual.html')">
+        <div class="game-item reveal" onclick="openGame('stickdual.html', 'stickdual.html')">
             <img src="stickdual.png" alt="Stickman Duals">
             <h2>Stick Duals</h2>
             <p>Test your sword fighting skills!</p>
         </div>
-        <div class="game-item" onclick="openGame('mario.html', 'mario.html')">
+        <div class="game-item reveal" onclick="openGame('mario.html', 'mario.html')">
             <img src="mario.png" alt="Mario">
             <h2>Mario Bros.</h2>
             <p>Win. Just win.</p>
         </div>
-        <div class="game-item" onclick="openGame('football.html', 'football.html')">
+        <div class="game-item reveal" onclick="openGame('football.html', 'football.html')">
             <img src="football.png" alt="Football">
             <h2>Soccer Game</h2>
             <p>Score goals!</p>
         </div>
-        <div class="game-item" onclick="openGame('robber.html', 'robber.html')">
+        <div class="game-item reveal" onclick="openGame('robber.html', 'robber.html')">
             <img src="robber.png" alt="BobTheRobber">
             <h2>Bob The Robber</h2>
             <p>Rob.</p>
         </div>
-        <div class="game-item" onclick="openGame('https://nexus-chat-rooms.github.io/nexuschatroom', 'https://nexus-chat-rooms.github.io/nexuschatroom')">
+        <div class="game-item reveal" onclick="openGame('https://nexus-chat-rooms.github.io/nexuschatroom', 'https://nexus-chat-rooms.github.io/nexuschatroom')">
             <img src="nexus.png" alt="NexusChat">
             <h2>Nexus Chat</h2>
             <p>Chat With Friends</p>
         </div>
-        <div class="game-item" onclick="openGame('deathrun.html', 'deathrun.html')">
+        <div class="game-item reveal" onclick="openGame('deathrun.html', 'deathrun.html')">
             <img src="deathrun.png" alt="Death run game.">
             <h2>Death Run 3D</h2>
             <p>Dodge objects in your path!</p>
         </div>
-        <div class="game-item" onclick="openGame('amongus.html', 'amongus.html')">
+        <div class="game-item reveal" onclick="openGame('amongus.html', 'amongus.html')">
             <img src="amongus.png" alt="Among Us">
             <h2>AmongUs</h2>
             <p>Find the murderer!</p>
         </div>
-        <div class="game-item" onclick="openGame('drivemad.html', 'drivemad.html')">
+        <div class="game-item reveal" onclick="openGame('drivemad.html', 'drivemad.html')">
             <img src="drivemad.png" alt="Drivemad">
             <h2>Drivemad</h2>
             <p>Drive, race, idk...</p>
         </div>
-        <div class="game-item" onclick="openGame('archer.html', 'archer.html')">
+        <div class="game-item reveal" onclick="openGame('archer.html', 'archer.html')">
             <img src="archer.png" alt="Stick Archer">
             <h2>Stick Archer</h2>
             <p>Aim, ready, SHOOT!</p>
         </div>
-        <div class="game-item" onclick="openGame('https://ubgroblox.global.ssl.fastly.net/', 'https://ubgroblox.global.ssl.fastly.net/')">
+        <div class="game-item reveal" onclick="openGame('https://ubgroblox.global.ssl.fastly.net/', 'https://ubgroblox.global.ssl.fastly.net/')">
             <img src="robloxcover.png" alt="Roblox">
             <h2>ROBLOX</h2>
             <p>Tons of experiences! - We made a new Roblox! yay! But our host site doesn't let you play it here, open it in a new tab!</p>
         </div>
-        <div class="game-item" onclick="openGame('snowballio.html', 'snowballio.html')">
+        <div class="game-item reveal" onclick="openGame('snowballio.html', 'snowballio.html')">
             <img src="snowballio.png" alt="Snowball IO">
             <h2>Snowball IO</h2>
             <p>Roll your snowball to make it big. WIN!!</p>
         </div>
-        <div class="game-item" onclick="openGame('gunspin.html', 'gunspin.html')">
+        <div class="game-item reveal" onclick="openGame('gunspin.html', 'gunspin.html')">
             <img src="gunspin.png" alt="Gunspin">
             <h2>GunSpin</h2>
             <p>Shoot bullets to move.</p>
         </div>
-        <div class="game-item" onclick="openGame('1v1lol.html', '1v1lol.html')">
+        <div class="game-item reveal" onclick="openGame('1v1lol.html', '1v1lol.html')">
             <img src="1v1lol.png" alt="1v1lol">
             <h2>1v1 lol</h2>
             <p>Shoot enemies for fun...</p>
         </div>
-        <div class="game-item" onclick="openGame('2048.html', '2048.html')">
+        <div class="game-item reveal" onclick="openGame('2048.html', '2048.html')">
             <img src="2048.png" alt="2048 game.">
             <h2>2048</h2>
             <p>Sliding block puzzle.</p>
         </div>
-        <div class="game-item" onclick="openGame('cookieclicker.html', 'cookieclicker.html')">
+        <div class="game-item reveal" onclick="openGame('cookieclicker.html', 'cookieclicker.html')">
             <img src="cookieclicker.png" alt="Cookie Clicker">
             <h2>Cookie Clicker</h2>
             <p>Click the Cookie</p>
         </div>
-        <div class="game-item" onclick="openGame('holeio.html', 'holeio.html')">
+        <div class="game-item reveal" onclick="openGame('holeio.html', 'holeio.html')">
             <img src="holeio.png" alt="Hole IO">
             <h2>Hole IO</h2>
             <p>Eat items, people, and MORE in Hole IO</p>
         </div>
-        <div class="game-item" onclick="openGame('justfall.html', 'justfall.html')">
+        <div class="game-item reveal" onclick="openGame('justfall.html', 'justfall.html')">
             <img src="justfall.png" alt="fall;just">
             <h2>Justfall LOL</h2>
             <p>Your a penguin...</p>
         </div>
-        <div class="game-item" onclick="openGame('fnaf1.html', 'fnaf1.html')">
+        <div class="game-item reveal" onclick="openGame('fnaf1.html', 'fnaf1.html')">
             <img src="fnaf1.png" alt="fnaf;hide">
             <h2>FNAF</h2>
             <p>Hide. Stay quiet!</p>
         </div>
-        <div class="game-item" onclick="openGame('bballstars.html', 'bballstars.html')">
+        <div class="game-item reveal" onclick="openGame('bballstars.html', 'bballstars.html')">
             <img src="bballstars.png" alt="Shoot;Bball">
             <h2>Basketball Stars</h2>
             <p>Shoot baskets to win.</p>
         </div>
-        <div class="game-item" onclick="openGame('bitlife.html', 'bitlife.html')">
+        <div class="game-item reveal" onclick="openGame('bitlife.html', 'bitlife.html')">
             <img src="bitlife.png" alt="grow-up;get-a-life">
             <h2>Bitlife.</h2>
             <p>Grow up, get a life.</p>
         </div>
-        <div class="game-item" onclick="openGame('bloxorz.html', 'bloxorz.html')">
+        <div class="game-item reveal" onclick="openGame('bloxorz.html', 'bloxorz.html')">
             <img src="bloxorz.png" alt="Move;rectangle">
             <h2>Bloxorz</h2>
             <p>Move around as a rectangle.</p>
         </div>
-        <div class="game-item" onclick="openGame('cuttherope.html', 'cuttherope.html')">
+        <div class="game-item reveal" onclick="openGame('cuttherope.html', 'cuttherope.html')">
             <img src="cuttherope.png" alt="Cut;Ropes">
             <h2>Cut the Rope.</h2>
             <p>Cut ropes.</p>
         </div>
-        <div class="game-item" onclick="openGame('eaglercraftx.html', 'eaglercraftx.html')">
+        <div class="game-item reveal" onclick="openGame('eaglercraftx.html', 'eaglercraftx.html')">
             <img src="eaglercraftx.png" alt="beta;minecraft">
             <h2>EaglercraftX</h2>
             <p>Minecraft but browser based.</p>
         </div>
-        <div class="game-item" onclick="openGame('https://playervpn.github.io/buildnowgamegg/', 'https://playervpn.github.io/buildnowgamegg/')">
+        <div class="game-item reveal" onclick="openGame('https://playervpn.github.io/buildnowgamegg/', 'https://playervpn.github.io/buildnowgamegg/')">
             <img src="buildnow.png" alt="browser;fortnite">
             <h2>BuildNow GG</h2>
             <p>Fortnite But Browser Based.</p>
         </div>
-        <div class="game-item" onclick="openGame('elasticman.html', 'elasticman.html')">
+        <div class="game-item reveal" onclick="openGame('elasticman.html', 'elasticman.html')">
             <img src="elasticman.png" alt="man;elastic">
             <h2>Elastic man</h2>
             <p>Pull his face</p>
         </div>
-        <div class="game-item" onclick="openGame('retrohaunt.html', 'retrohaunt.html')">
+        <div class="game-item reveal" onclick="openGame('retrohaunt.html', 'retrohaunt.html')">
             <img src="retrohaunt.png" alt="hanted;retro">
             <h2>Retro Haunt</h2>
             <p>A fun retro game, entertain yourself</p>
         </div>
-        <div class="game-item" onclick="openGame('chromedino.html', 'chromedino.html')">
+        <div class="game-item reveal" onclick="openGame('chromedino.html', 'chromedino.html')">
             <img src="chromedino.png" alt="chrome;dino">
             <h2>Chrome Dino</h2>
             <p>Play the Google Dino offline game!</p>
         </div>
-        <div class="game-item" onclick="openGame('slope', 'slope.html')">
+        <div class="game-item reveal" onclick="openGame('slope', 'slope.html')">
             <img src="slopegame.png" alt="slope">
             <h2>Slope Game</h2>
             <p>A fantastic fullscreen speed run game</p>
         </div>
-        <div class="game-item" onclick="openGame('slope-2', 'slope-2.html')">
+        <div class="game-item reveal" onclick="openGame('slope-2', 'slope-2.html')">
             <img src="slope-2.png" alt="Slope-2">
             <h2>Slope Game 2</h2>
             <p>A fantastic fullscreen speed run game. The 2nd.</p>
         </div>
-        <div class="game-item" onclick="openGame('tunnelrush.html', 'tunnelrush.html')">
+        <div class="game-item reveal" onclick="openGame('tunnelrush.html', 'tunnelrush.html')">
             <img src="tunnelrush.png" alt="rush;tunnel">
             <h2>Tunnel Rush</h2>
             <p>Dodge obstacles in the tunnel!</p>
         </div>
-        <div class="game-item" onclick="openGame('coreballgame.html', 'coreballgame.html')">
+        <div class="game-item reveal" onclick="openGame('coreballgame.html', 'coreballgame.html')">
             <img src="coreballgame.png" alt="ball;core">
             <h2>Coreball</h2>
             <p>Start, play, have fun!</p>
         </div>
-        <div class="game-item" onclick="openGame('pacman.html', 'pacman.html')">
+        <div class="game-item reveal" onclick="openGame('pacman.html', 'pacman.html')">
             <img src="pacman.png" alt="pac;man">
             <h2>Pacman :)</h2>
             <p>Classic Arcade Pacman :)</p>
         </div>
-        <div class="game-item" onclick="openGame('tictactoe', 'tictactoe.html')">
+        <div class="game-item reveal" onclick="openGame('tictactoe', 'tictactoe.html')">
             <img src="tictactoe.png" alt="tic;toes">
             <h2>Tictactoe</h2>
             <p>X;O</p>
         </div>
-        <div class="game-item" onclick="openGame('doodlejump', 'doodlejump.html')">
+        <div class="game-item reveal" onclick="openGame('doodlejump', 'doodlejump.html')">
             <img src="doodlejump.png" alt="doodle;jump">
             <h2>Doodle Jump</h2>
             <p>Doodle Jump. A classic.</p>
         </div>
-        <div class="game-item" onclick="openGame('bubbleshooter.html', 'bubbleshooter.html')">
+        <div class="game-item reveal" onclick="openGame('bubbleshooter.html', 'bubbleshooter.html')">
             <img src="bubbleshooter.png" alt="shoot;bubble">
             <h2>Bubble Shooter</h2>
             <p>Shoot bubbles.</p>
         </div>
-        <div class="game-item" onclick="openGame('https://playervpn.github.io/blockblast-unlocked/', 'blockblast.html')">
+        <div class="game-item reveal" onclick="openGame('https://playervpn.github.io/blockblast-unlocked/', 'blockblast.html')">
             <img src="blockblast.png" alt="block;blast">
             <h2>Block Blast!</h2>
             <p>Classic Block Blaster.</p>
         </div>
-        <div class="game-item" onclick="openGame('evilglitch.html', 'evilglitch.html')">
+        <div class="game-item reveal" onclick="openGame('evilglitch.html', 'evilglitch.html')">
             <img src="evilglitch.png" alt="glitched;shooter">
             <h2>Evil Glitch</h2>
             <p>Fun, addictive, Glitched</p>
         </div>
-        <div class="game-item" onclick="openGame('geometrydash.html', 'geometrydash.html')">
+        <div class="game-item reveal" onclick="openGame('geometrydash.html', 'geometrydash.html')">
             <img src="geometrydash.png" alt="geometry;dash">
             <h2>Geometry Dash</h2>
             <p>Not really learning :)</p>
         </div>
-        <div class="game-item" onclick="openGame('cubefield', 'cubefield.html')">
+        <div class="game-item reveal" onclick="openGame('cubefield', 'cubefield.html')">
             <img src="cubefieldgame.png" alt="field;cube">
             <h2>Cube Field</h2>
             <p>A game where u must dodge squares :)</p>
         </div>
-        <div class="game-item" onclick="openGame('backrooms', 'backrooms.html')">
+        <div class="game-item reveal" onclick="openGame('backrooms', 'backrooms.html')">
             <img src="backrooms.png" alt="rooms;backrooms">
             <h2>Back Rooms</h2>
             <p>Play our most 3D game here:)</p>
         </div>
-        <div class="game-item" onclick="openGame('paper-3', 'paperio3.html')">
+        <div class="game-item reveal" onclick="openGame('paper-3', 'paperio3.html')">
             <img src="paperio3.png" alt="paper;io3">
             <h2>Paper io 3D</h2>
             <p>Fun mobile game, works in browser don't worry :)</p>
         </div>
-        <div class="game-item" onclick="openGame('territorial.html', 'territorial.html')">
+        <div class="game-item reveal" onclick="openGame('territorial.html', 'territorial.html')">
             <img src="territorial.png" alt="io;territorial">
             <h2>Territorial IO</h2>
             <p>Engaging, fun, game for all devices.</p>
         </div>
-        <div class="game-item" onclick="openGame('cluster-rush', 'clusterrush.html')">
+        <div class="game-item reveal" onclick="openGame('cluster-rush', 'clusterrush.html')">
             <img src="clusterrush.png" alt="rush;cluster">
             <h2>Cluster Rush</h2>
             <p>Takes a little while to load :)</p>
         </div>
-        <div class="game-item" onclick="openGame('slitherio-online.html', 'slitherio-online.html')">
+        <div class="game-item reveal" onclick="openGame('slitherio-online.html', 'slitherio-online.html')">
             <img src="slitherio-online.png" alt="Slither;io-online">
             <h2>SlitherIO Online</h2>
             <p>Scratch copy of unlocked SlitherIO :)</p>
         </div>
-        <div class="game-item" onclick="openGame('baldis-basics', 'baldis-basics.html')">
+        <div class="game-item reveal" onclick="openGame('baldis-basics', 'baldis-basics.html')">
             <img src="baldis-basics.png" alt="Basics;Baldis">
             <h2>Baldis Basics</h2>
             <p>Play a fun WebGL Game, Baldis Basics :)</p>
         </div>
-        <div class="game-item" onclick="openGame('motox3m.html', 'motox3m.html')">
+        <div class="game-item reveal" onclick="openGame('motox3m.html', 'motox3m.html')">
             <img src="motox3m.png" alt="x3m;moto">
             <h2>Moto X3M</h2>
             <p>Play the fun original Moto X3M Game</p>
         </div>
-        <div class="game-item" onclick="openGame('angrybirds.html', 'angrybirds.html')">
+        <div class="game-item reveal" onclick="openGame('angrybirds.html', 'angrybirds.html')">
             <img src="angrybirds.png" alt="birds;angry">
             <h2>Angry Birds</h2>
             <p>Throw birds at objects ;)</p>
         </div>
-        <div class="game-item" onclick="openGame('portal.html', 'portal.html')">
+        <div class="game-item reveal" onclick="openGame('portal.html', 'portal.html')">
             <img src="portal.png" alt="portal;game">
             <h2>Portal</h2>
             <p>Play the fun Portal game. (Flash version) ;)</p>
         </div>
-        <div class="game-item" onclick="openGame('therealsnakeio.html', 'therealsnakeio.html')">
+        <div class="game-item reveal" onclick="openGame('therealsnakeio.html', 'therealsnakeio.html')">
             <img src="therealsnakeio.png" alt="snake;iogame">
             <h2>The REAL SlitherIO</h2>
             <p>The non-scratch version of Slitherio on PVPN games.</p>
         </div>
-        <div class="game-item" onclick="openGame('driftboss.html', 'driftboss.html')">
+        <div class="game-item reveal" onclick="openGame('driftboss.html', 'driftboss.html')">
             <img src="driftboss.png" alt="boss;drift">
             <h2>Drift Boss</h2>
             <p>Oh man, don't fall off!</p>
         </div>
-        <div class="game-item" onclick="openGame('tiny-fishing.html', 'tiny-fishing.html')">
+        <div class="game-item reveal" onclick="openGame('tiny-fishing.html', 'tiny-fishing.html')">
             <img src="tiny-fishing.png" alt="fish;tiny">
             <h2>Tiny Fishing</h2>
             <p>The super fun ultimate so so so cool game!</p>
         </div>
-        <div class="game-item" onclick="openGame('acheivmentunlocked.html', 'acheivmentunlocked.html')">
+        <div class="game-item reveal" onclick="openGame('acheivmentunlocked.html', 'acheivmentunlocked.html')">
             <img src="achievementunlocked.png" alt="unlocked;game">
             <h2>Achievement Unlocked</h2>
             <p>Something!</p>
         </div>
-        <div class="game-item" onclick="openGame('monkeymart.html', 'monkeymart.html')">
+        <div class="game-item reveal" onclick="openGame('monkeymart.html', 'monkeymart.html')">
             <img src="monkeymart.png" alt="mart;monkey">
             <h2>Monkey Mart</h2>
             <p>Fun.</p>
         </div>
-        <div class="game-item" onclick="openGame('stack.html', 'stack.html')">
+        <div class="game-item reveal" onclick="openGame('stack.html', 'stack.html')">
             <img src="stack.png" alt="stack">
             <h2>Stack.</h2>
             <p>The blocks get smaller every time you miss :)</p>
         </div>
-        <div class="game-item" onclick="openGame('stickmanhook.html', 'stickmanhook.html')">
+        <div class="game-item reveal" onclick="openGame('stickmanhook.html', 'stickmanhook.html')">
             <img src="stickmanhook.png" alt="hook;stickman">
             <h2>Stickman Hook</h2>
             <p>How far can you make it?</p>
         </div>
-        <div class="game-item" onclick="openGame('supermario64.html', 'supermario64.html')">
+        <div class="game-item reveal" onclick="openGame('supermario64.html', 'supermario64.html')">
             <img src="supermario64.png" alt="mario;super">
             <h2>Super Mario 64</h2>
             <p>Save Princess Peach!</p>
         </div>
-            <div class="game-item" onclick="openGame('moutainmaze.html', 'moutainmaze.html')">
+        <div class="game-item reveal" onclick="openGame('moutainmaze.html', 'moutainmaze.html')">
             <img src="moutainmaze.png" alt="maze;fun">
             <h2>Mountain Maze</h2>
             <p>Find your way out, with randomly made levels!</p>
         </div>
-            <div class="game-item" onclick="openGame('madalinstuntcars', 'madalinstuntcars')">
+        <div class="game-item reveal" onclick="openGame('madalinstuntcars', 'madalinstuntcars')">
             <img src="madalinstuntcars.png" alt="drive;cars">
             <h2>Madalin Stunt Cars</h2>
             <p>Race your A$$ OFF!</p>
         </div>
-            <div class="game-item" onclick="openGame('leveldevel.html', 'leveldevel.html')">
+        <div class="game-item reveal" onclick="openGame('leveldevel.html', 'leveldevel.html')">
             <img src="leveldevel.png" alt="level;devel">
             <h2>Level Devil</h2>
             <p>A rage game.</p>
         </div>
-            <div class="game-item" onclick="openGame('Rocket-Leage', 'Rocket-Leage')">
+        <div class="game-item reveal" onclick="openGame('Rocket-Leage', 'Rocket-Leage')">
             <img src="rocketleage.png" alt="leage;rocket">
             <h2>ROCKET LEAGUE</h2>
             <p>Car soccer.</p>
@@ -1068,6 +1112,45 @@
             // Update the progress bar and load recommended games
             updateProgressBar();
             loadRecommendedGames();
+
+            // Welcome Overlay Logic
+            let isFirstVisit = localStorage.getItem('firstVisit') === null;
+
+            if (isFirstVisit) {
+                document.getElementById('welcome-overlay').style.display = 'flex';
+                setTimeout(() => {
+                    document.getElementById('welcome-content').style.opacity = 1; // Fade in content
+                }, 100); // 3 seconds to show welcome content
+            } else {
+                document.getElementById('welcome-overlay').style.display = 'none'; // Hides if not first visit
+            }
+
+            // Add event listeners for hiding welcome overlay
+            document.addEventListener('click', fadeOutWelcome);
+            document.addEventListener('keydown', fadeOutWelcome);
+
+            function fadeOutWelcome() {
+                if (isFirstVisit) {
+                    isFirstVisit = false;
+                    localStorage.setItem('firstVisit', 'true');
+                    const overlay = document.getElementById('welcome-overlay');
+                    overlay.style.opacity = 0; // Start fading out overlay
+                    setTimeout(() => {
+                        overlay.style.display = 'none'; // Hide overlay after fade out
+                    }, 1000); // Match with the opacity transition
+                }
+            }
+
+            // Scroll Animation
+            const revealElements = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible'); // Add visible class when in view
+                    }
+                });
+            });
+            revealElements.forEach(elem => observer.observe(elem));
         };
 
         // Recommended Games Logic
@@ -1149,6 +1232,49 @@
                 recommendedContainer.appendChild(gameElement);
             });
         }
+    </script>
+    <script>
+        // First time visit handling
+        let isFirstVisit = localStorage.getItem('firstVisit') === null;
+
+        if (isFirstVisit) {
+            document.getElementById('welcome-overlay').style.display = 'flex';
+            setTimeout(() => {
+                document.getElementById('welcome-content').style.opacity = 1; // Fade in content 
+            }, 100); // 3 seconds before showing welcome content
+        } else {
+            document.getElementById('welcome-overlay').style.display = 'none'; // Hides if not first visit
+        }
+
+        // Add event listeners for hiding welcome overlay
+        document.addEventListener('click', fadeOutWelcome);
+        document.addEventListener('keydown', fadeOutWelcome);
+
+        function fadeOutWelcome() {
+            if (isFirstVisit) {
+                isFirstVisit = false;
+                localStorage.setItem('firstVisit', 'true');
+                const overlay = document.getElementById('welcome-overlay');
+                overlay.style.opacity = 0; // Start fading out overlay
+                setTimeout(() => {
+                    overlay.style.display = 'none'; // Hide overlay after fade out
+                }, 1000); // Match with the opacity transition
+            }
+        }
+
+        // Smooth scroll appearance
+        const elements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible'); // Add visible class when in view
+                }
+            });
+        }, { threshold: 0.1 });
+
+        elements.forEach(element => {
+            observer.observe(element); // Observe each element
+        });
     </script>
 </body>
 </html>
