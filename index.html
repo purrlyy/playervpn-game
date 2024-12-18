@@ -144,6 +144,56 @@
             transform: scale(1.05);
         }
 
+        /* Game Promotion Styles */
+        .game-promotion {
+            width: calc(100% - 40px); /* Adjust to fit within margins */
+            max-width: 1400px; /* Max width to maintain layout */
+            margin: 0 auto 30px; /* Centered margin */
+            background-color: #6a0dad; /* Background color */
+            border-radius: 15px; /* Rounded corners */
+            position: relative; /* Positioning for button */
+            overflow: hidden; /* To ensure content doesn't overflow */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .game-promotion img {
+            width: 100%; /* Full width */
+            border-radius: 15px; /* Ensure image has rounded corners */
+        }
+
+        .play-now-button {
+            position: absolute; /* Center the button */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #9b59b6; /* Button color */
+            border: none;
+            border-radius: 25px; /* Rounded button */
+            padding: 15px 30px; /* Space inside button */
+            color: black; /* Button text color */
+            font-family: 'Poppins', sans-serif; /* Font */
+            font-weight: bold; /* Bold text */
+            cursor: pointer; /* Pointer on hover */
+            z-index: 100; /* Above background */
+        }
+
+        .promotion-label {
+            position: absolute; /* Position for label */
+            top: 10px;
+            left: 10px;
+            background-color: purple; /* Label background */
+            border-radius: 5px; /* Rounded corners */
+            color: white; /* Text color */
+            display: flex; /* Flex to align icon and text */
+            align-items: center; /* Center items vertically */
+            padding: 5px 10px; /* Padding around label */
+        }
+
+        /* Fire Icon */
+        .promotion-label i {
+            margin-right: 5px; /* Space between icon and text */
+        }
+
         /* GitHub Button Styles */
         .github-button {
             position: fixed;
@@ -469,6 +519,16 @@
 
     <!-- Visit Counter -->
     <div class="visit-counter" id="visit-counter"></div>
+
+    <!-- New Game Promotion Section -->
+    <div class="game-promotion">
+        <img src="https://defold.com/images/games/monkeymart-half.png" alt="Monkey Mart"> <!-- Replace with your promotional image URL -->
+        <button class="play-now-button" onclick="openGame('monkeymart.html', 'monkeymart.html')">Play Now in Browser</button>
+        <div class="promotion-label">
+            <i class="fas fa-fire" style="color: white;"></i>
+            <span style="font-weight: bold; color: white;">Popular</span>
+        </div>
+    </div>
 
     <!-- A:B Cloaker Button -->
     <button class="cloak-button" onclick="window.location.href='/playervpn-games/aboutblank'">A:B Cloaker</button>
