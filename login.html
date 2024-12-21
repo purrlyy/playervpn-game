@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0d0d0d, #3a0ca3);
+            color: #fff;
+            font-family: 'Roboto Mono', monospace;
+            overflow: hidden;
+        }
+
+        .login-container {
+            text-align: center;
+            background: rgba(15, 15, 30, 0.95);
+            border: 2px solid #a020f0;
+            border-radius: 15px;
+            padding: 40px 30px;
+            box-shadow: 0 0 60px #a020f0, 0 0 120px #ff00ff;
+            position: relative;
+        }
+
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle, rgba(255, 0, 255, 0.15), transparent);
+            z-index: -1;
+        }
+
+        .login-container img {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+
+        .login-container h1 {
+            font-size: 2.5rem;
+            color: #a020f0;
+            text-shadow: 0 0 20px #a020f0, 0 0 50px #ff00ff;
+            margin-bottom: 20px;
+        }
+
+        .login-container input {
+            display: block;
+            margin: 15px auto;
+            padding: 15px;
+            width: 80%;
+            font-size: 1rem;
+            border: none;
+            border-radius: 10px;
+            background: #1a1a2e;
+            color: #fff;
+            outline: none;
+            box-shadow: 0 0 15px #a020f0;
+            text-align: center;
+            transition: 0.3s ease;
+        }
+
+        .login-container input:focus {
+            box-shadow: 0 0 25px #ff00ff;
+        }
+
+        .login-container button {
+            padding: 15px 25px;
+            font-size: 1.1rem;
+            background: linear-gradient(90deg, #a020f0, #ff00ff);
+            border: none;
+            border-radius: 10px;
+            color: #fff;
+            cursor: pointer;
+            box-shadow: 0 0 30px #a020f0;
+            transition: 0.3s;
+        }
+
+        .login-container button:hover {
+            box-shadow: 0 0 50px #ff00ff;
+            transform: scale(1.1);
+        }
+
+        .error {
+            color: #ff007a;
+            font-size: 1rem;
+            margin-top: 10px;
+            text-shadow: 0 0 10px #ff007a;
+        }
+
+        .login-container button:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <img src="logoorbit3.png" alt="Logo">
+        <h1>Welcome, User</h1>
+        <h2>Sorry for the inconvenience</h2>
+        <input id="username" type="text" placeholder="Username" />
+        <input id="password" type="password" placeholder="Password" />
+        <button id="login-btn">Enter</button>
+        <p id="error-msg" class="error"></p>
+    </div>
+
+    <script>
+        // Check if already logged in
+        if (localStorage.getItem('isLoggedIn') === 'true') {
+            window.location.href = 'index.html';
+        }
+
+        // Login functionality
+        const loginBtn = document.getElementById('login-btn');
+        const usernameField = document.getElementById('username');
+        const passwordField = document.getElementById('password');
+        const errorMsg = document.getElementById('error-msg');
+
+        loginBtn.addEventListener('click', () => {
+            const username = usernameField.value.trim();
+            const password = passwordField.value.trim();
+
+            if (username === 'Orbit' && password === 'Orbit') {
+                localStorage.setItem('isLoggedIn', 'true');
+                window.location.href = 'index.html';
+            } else {
+                errorMsg.textContent = 'Invalid username or password!';
+            }
+        });
+    </script>
+</body>
+</html>
