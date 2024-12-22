@@ -128,9 +128,7 @@
   </style>
 </head>
 <body>
-  <div class="stars">
-    <!-- Stars will be dynamically generated -->
-  </div>
+  <div class="stars"></div>
   <div class="container">
     <div class="avatar"><i class="fas fa-user-shield"></i></div>
     <div class="title">Welcome to Orbit. Authentication</div>
@@ -142,11 +140,11 @@
   <div class="footer">© 2025 Orbit Systems</div>
 
   <script>
-    // Password check and redirection
+    // Function to handle login
     document.getElementById('submit').addEventListener('click', () => {
       const password = document.getElementById('password').value;
       if (password === 'Orbit') {
-        // Redirect in the same tab
+        // Redirect to index.html in the same tab
         window.location.href = 'index.html';
       } else {
         alert('Incorrect password. Please try again.');
