@@ -967,21 +967,6 @@
 
     <!-- Inline JavaScript for Tab Cloak & Header Navigation -->
     <script>
-        // Check if the user has completed OAuth
-        const isOAuthCompleted = localStorage.getItem('isOAuthCompleted');
-
-        // Check login expiration (10 minutes)
-        const lastLoginTime = parseInt(localStorage.getItem('lastLoginTime'));
-        const tenMinutes = 10 * 60 * 1000; // 10 minutes in milliseconds
-        
-        if (!isOAuthCompleted) {
-            // Redirect to oauth.html
-            window.location.href = 'oauth.html';
-        } else if (Date.now() - lastLoginTime > tenMinutes) {
-            // Redirect to login if more than 10 minutes have passed since last login
-            window.location.href = 'login.html';
-        }
-
         let progress = parseInt(localStorage.getItem('progress')) || 0; // Read progress from localStorage
         const totalGames = 100; // 100% progress corresponds to 100 actions
         const refreshRate = 100; // Level changes every 100 actions
@@ -1143,15 +1128,12 @@
             updateProgressBar();
             loadRecommendedGames();
 
-            // First-time visit handling
+            // First time visit handling
             const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; 
             let isFirstVisit = localStorage.getItem('firstVisit') === null;
 
             if (!isLoggedIn) {
                 // Redirect to login page
-                window.location.href = 'login.html';
-            } else if (Date.now() - lastLoginTime > tenMinutes) {
-                // Redirect to login if more than 10 minutes have passed since last login
                 window.location.href = 'login.html';
             } else {
                 if (isFirstVisit) {
@@ -1283,18 +1265,8 @@
         const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; 
         let isFirstVisit = localStorage.getItem('firstVisit') === null;
 
-        // Check if the user has completed OAuth
-        const isOAuthCompleted = localStorage.getItem('isOAuthCompleted');
-
-        // Check login expiration (10 minutes)
-        const lastLoginTime = parseInt(localStorage.getItem('lastLoginTime'));
-        const tenMinutes = 10 * 60 * 1000; // 10 minutes in milliseconds
-
-        if (!isOAuthCompleted) {
-            // Redirect to oauth.html
-            window.location.href = 'oauth.html';
-        } else if (!isLoggedIn || (Date.now() - lastLoginTime > tenMinutes)) {
-            // Redirect to login if not logged in or more than 10 minutes have passed since last login
+        if (!isLoggedIn) {
+            // Redirect to login page
             window.location.href = 'login.html';
         } else {
             if (isFirstVisit) {
