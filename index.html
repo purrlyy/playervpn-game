@@ -957,20 +957,6 @@
 
     <!-- Inline JavaScript for Tab Cloak & Header Navigation -->
     <script>
-        // Password prompt
-        const correctPassword = "Orbit"; // Correct password
-        let isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; // Check login status
-
-        // Re-enter password if logged in
-        if(isLoggedIn) {
-            const userPassword = prompt("Please enter your password to access the site:", "");
-            if (userPassword !== correctPassword) {
-                alert("Incorrect password. You will be redirected to the login page.");
-                localStorage.removeItem('isLoggedIn'); // Remove login status
-                window.location.href = 'login.html'; // Redirect to login page
-            }
-        }
-
         let progress = parseInt(localStorage.getItem('progress')) || 0; // Read progress from localStorage
         const totalGames = 100; // 100% progress corresponds to 100 actions
         const refreshRate = 100; // Level changes every 100 actions
@@ -1133,6 +1119,7 @@
             loadRecommendedGames();
 
             // First time visit handling
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; 
             let isFirstVisit = localStorage.getItem('firstVisit') === null;
 
             if (!isLoggedIn) {
@@ -1263,306 +1250,50 @@
     </script>
     <script>
         // First time visit handling
-        const correctPassword = "Orbit"; // Correct password
-        let isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; // Check login status
+        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; 
+        let isFirstVisit = localStorage.getItem('firstVisit') === null;
 
-        // Re-enter password if logged in
-        if(isLoggedIn) {
-            const userPassword = prompt("Please enter your password to access the site:", "");
-            if (userPassword !== correctPassword) {
-                alert("Incorrect password. You will be redirected to the login page.");
-                localStorage.removeItem('isLoggedIn'); // Remove login status
-                window.location.href = 'login.html'; // Redirect to login page
-            }
-        }
-
-        let progress = parseInt(localStorage.getItem('progress')) || 0; // Read progress from localStorage
-        const totalGames = 100; // 100% progress corresponds to 100 actions
-        const refreshRate = 100; // Level changes every 100 actions
-        const progressBar = document.getElementById('progress-bar');
-        const progressLabel = document.getElementById('progress-label');
-
-        // Initialize the progress bar and visit counter
-        updateProgressBar();
-        updateVisitCounter();
-
-        // Update progress bar and level label
-        function updateProgressBar() {
-            const percent = Math.min((progress / totalGames) * 100, 100); // Cap at 100%
-            progressBar.style.width = percent + '%';
-            const currentLevel = Math.floor(progress / refreshRate) + 1; // Level up every 100%
-            progressLabel.textContent = `LVL ${currentLevel}`;
-        }
-
-        async function updateVisitCounter() {
-            // Increment visit count
-            await fetch('/api/visit-count', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({}),
-            });
-
-            // Fetch the updated visit count
-            const response = await fetch('/api/visit-count');
-            const data = await response.json();
-            document.getElementById('visit-counter').textContent = `Total Visits: ${data.count}`;
-        }
-
-        // Function to open a game
-        function openGame(gameFile, downloadFile) {
-            if (progress < totalGames) { // Increment only if below max
-                progress++;
-                localStorage.setItem('progress', progress); // Save progress to local storage
-                updateProgressBar(); // Update progress on UI
-            }
-            document.getElementById('game-iframe').src = gameFile; // Set iframe source
-            document.getElementById('game-modal').style.display = 'block'; // Show modal
-            document.getElementById('download-button').setAttribute('href', downloadFile); // Set download link
-            document.getElementById('download-button').setAttribute('download', downloadFile); // Download attribute
-        }
-
-        // Close game modal
-        function closeGame() {
-            document.getElementById('game-modal').style.display = 'none'; // Hide modal
-            document.getElementById('game-iframe').src = ''; // Clear iframe source
-        }
-
-        // Open game in a new tab
-        function openGameInNewTab() {
-            const gameFile = document.getElementById('game-iframe').src; // Get the current game URL
-            if (gameFile) {
-                window.open(gameFile, '_blank'); // Open in new tab
-            }
-        }
-
-        // Toggle full-screen mode only for the game
-        function toggleFullScreen() {
-            const iframe = document.getElementById('game-iframe');
-            if (iframe.requestFullscreen) {
-                iframe.requestFullscreen();
-            } else if (iframe.mozRequestFullScreen) {
-                iframe.mozRequestFullScreen();
-            } else if (iframe.webkitRequestFullscreen) {
-                iframe.webkitRequestFullscreen();
-            } else if (iframe.msRequestFullscreen) {
-                iframe.msRequestFullscreen();
-            }
-        }
-
-        // Open settings modal
-        function openSettings() {
-            document.getElementById('settings-modal').style.display = 'flex';
-        }
-
-        // Close settings modal
-        function closeSettings() {
-            document.getElementById('settings-modal').style.display = 'none';
-        }
-
-        // Change Tab Cloak
-        function changeTabCloak() {
-            const selectedValue = document.getElementById('tab-cloak-select').value;
-            let title, favicon;
-
-            // Set title and favicon based on selection
-            switch (selectedValue) {
-                case 'schoology':
-                    title = "Home | Schoology";
-                    favicon = 'https://www.betterbuys.com/wp-content/uploads/2016/11/schoology-logo.png';
-                    break;
-                case 'google':
-                    title = "Home | Google";
-                    favicon = 'https://www.google.com/favicon.ico';
-                    break;
-                case 'google_classroom':
-                    title = "Home | Google Classroom";
-                    favicon = 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Google_Classroom_icon.svg/2048px-Google_Classroom_icon.svg.png';
-                    break;
-                case 'edia':
-                    title = "Edia";
-                    favicon = 'ediamath.png'; // Set favicon for Edia
-                    break;
-                default:
-                    title = "Orbit.";
-                    favicon = 'https://i.ibb.co/j52f5kD/pvpn-favi.png';
-                    break;
-            }
-
-            // Save settings to localStorage
-            localStorage.setItem("tabTitle", title);
-            localStorage.setItem("tabFavicon", favicon);
-
-            // Update the document title and favicon
-            document.title = title;
-
-            const link = document.querySelector("link[rel*='icon']") || document.createElement('link');
-            link.rel = 'icon';
-            link.href = favicon;
-            document.getElementsByTagName('head')[0].appendChild(link);
-        }
-
-        // Service Worker registration
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('sw.js').then((registration) => {
-                    console.log('Service Worker registered with scope:', registration.scope);
-                }).catch((error) => {
-                    console.log('Service Worker registration failed:', error);
-                });
-            });
-        }
-
-        // Sidebar visibility for game pages
-        if (window.location.pathname !== '/playervpn-games/index.html') {
-            document.getElementById('sidebar').style.display = 'block';
-        }
-
-        // Load settings from localStorage on page load
-        window.onload = function() {
-            const title = localStorage.getItem("tabTitle");
-            const favicon = localStorage.getItem("tabFavicon");
-
-            // Update title and favicon if saved
-            if (title) {
-                document.title = title;
-            }
-            if (favicon) {
-                const link = document.createElement('link');
-                link.rel = 'icon';
-                link.href = favicon;
-                document.head.appendChild(link);
-            }
-
-            // Update the progress bar and load recommended games
-            updateProgressBar();
-            loadRecommendedGames();
-
-            // First time visit handling
-            let isFirstVisit = localStorage.getItem('firstVisit') === null;
-
-            if (!isLoggedIn) {
-                // Redirect to login page
-                window.location.href = 'login.html';
+        if (!isLoggedIn) {
+            // Redirect to login page
+            window.location.href = 'login.html';
+        } else {
+            if (isFirstVisit) {
+                document.getElementById('welcome-overlay').style.display = 'flex';
+                setTimeout(() => {
+                    document.getElementById('welcome-content').style.opacity = 1; // Fade in content 
+                }, 100); // 3 seconds before showing welcome content
             } else {
-                if (isFirstVisit) {
-                    document.getElementById('welcome-overlay').style.display = 'flex';
-                    setTimeout(() => {
-                        document.getElementById('welcome-content').style.opacity = 1; // Fade in content 
-                    }, 100); // 3 seconds before showing welcome content
-                } else {
-                    document.getElementById('welcome-overlay').style.display = 'none'; // Hides if not first visit
-                }
-
-                // Add event listeners for hiding welcome overlay
-                document.addEventListener('click', fadeOutWelcome);
-                document.addEventListener('keydown', fadeOutWelcome);
-
-                function fadeOutWelcome() {
-                    if (isFirstVisit) {
-                        isFirstVisit = false;
-                        localStorage.setItem('firstVisit', 'true');
-                        const overlay = document.getElementById('welcome-overlay');
-                        overlay.style.opacity = 0; // Start fading out overlay
-                        setTimeout(() => {
-                            overlay.style.display = 'none'; // Hide overlay after fade out
-                        }, 1000); // Match with the opacity transition
-                    }
-                }
-
-                // Smooth scroll appearance
-                const elements = document.querySelectorAll('.reveal');
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('visible'); // Add visible class when in view
-                        }
-                    });
-                }, { threshold: 0.1 });
-
-                elements.forEach(element => {
-                    observer.observe(element); // Observe each element
-                });
+                document.getElementById('welcome-overlay').style.display = 'none'; // Hides if not first visit
             }
-        };
 
-        // Recommended Games Logic
-        const games = [
-            { name: "Snowrider 3D", image: "snowrider.png", link: "snowrider.html" },
-            { name: "Time Shooter 3", image: "timeshooter3.png", link: "timeshooter3.html" },
-            { name: "Smash Karts", image: "smashkarts.png", link: "smashkarts.html" },
-            { name: "Stick Duals", image: "stickdual.png", link: "stickdual.html" },
-            { name: "Mario Bros.", image: "mario.png", link: "mario.html" },
-            { name: "Soccer Game", image: "football.png", link: "football.html" },
-            { name: "Bob The Robber", image: "robber.png", link: "robber.html" },
-            { name: "Death Run 3D", image: "deathrun.png", link: "deathrun.html" },
-            { name: "AmongUs", image: "amongus.png", link: "amongus.html" },
-            { name: "Drivemad", image: "drivemad.png", link: "drivemad.html" },
-            { name: "Stick Archer", image: "archer.png", link: "archer.html" },
-            { name: "ROBLOX - DOWN", image: "robloxcover.png", link: "roblox.html" },
-            { name: "Snowball IO", image: "snowballio.png", link: "snowballio.html" },
-            { name: "GunSpin", image: "gunspin.png", link: "gunspin.html" },
-            { name: "1v1 lol", image: "1v1lol.png", link: "1v1lol.html" },
-            { name: "2048", image: "2048.png", link: "2048.html" },
-            { name: "Cookie Clicker", image: "cookieclicker.png", link: "cookieclicker.html" },
-            { name: "Hole IO", image: "holeio.png", link: "holeio.html" },
-            { name: "Justfall LOL", image: "justfall.png", link: "justfall.html" },
-            { name: "FNAF", image: "fnaf1.png", link: "fnaf1.html" },
-            { name: "Basketball Stars", image: "bballstars.png", link: "bballstars.html" },
-            { name: "Bitlife.", image: "bitlife.png", link: "bitlife.html" },
-            { name: "Bloxorz", image: "bloxorz.png", link: "bloxorz.html" },
-            { name: "Cut the Rope.", image: "cuttherope.png", link: "cuttherope.html" },
-            { name: "EaglercraftX", image: "eaglercraftx.png", link: "eaglercraftx.html" },
-            { name: "BuildNow GG", image: "buildnow.png", link: "https://playervpn.github.io/buildnowgamegg/" },
-            { name: "Elastic man", image: "elasticman.png", link: "elasticman.html" },
-            { name: "Retro Haunt", image: "retrohaunt.png", link: "retrohaunt.html" },
-            { name: "Chrome Dino", image: "chromedino.png", link: "chromedino.html" },
-            { name: "Slope", image: "slopegame.png", link: "slope" },
-            { name: "Tunnel Rush", image: "tunnelrush.png", link: "tunnelrush.html" },
-            { name: "Coreball", image: "coreballgame.png", link: "coreballgame.html" },
-            { name: "Pacman :)", image: "pacman.png", link: "pacman.html" },
-            { name: "Tictactoe", image: "tictactoe.png", link: "tictactoe.html" },
-            { name: "Doodle Jump", image: "doodlejump.png", link: "doodlejump.html" },
-            { name: "Bubble Shooter", image: "bubbleshooter.png", link: "bubbleshooter.html" },
-            { name: "Block Blast!", image: "blockblast.png", link: "https://playervpn.github.io/blockblast-unlocked/" },
-            { name: "Evil Glitch", image: "evilglitch.png", link: "evilglitch.html" },
-            { name: "Geometry Dash", image: "geometrydash.png", link: "geometrydash.html" },
-            { name: "Cube Field", image: "cubefieldgame.png", link: "cubefield.html" },
-            { name: "Backrooms", image: "backrooms.png", link: "backrooms.html" },
-            { name: "Paperio 3D", image: "paperio3.png", link: "paper-3.html" },
-            { name: "Territorial IO", image: "territorial.png", link: "territorial.html" },
-            { name: "Cluster Rush", image: "clusterrush.png", link: "clusterrush.html" },
-            { name: "SlitherIO Online", image: "slitherio-online.png", link: "slitherio-online.html" },
-            { name: "Baldis Basics", image: "baldis-basics.png", link: "baldis-basics.html" },
-            { name: "Moto X3M", image: "motox3m.png", link: "motox3m.html" },
-            { name: "Portal", image: "portal.png", link: "portal.html" },
-            { name: "The real SlitherIO", image: "therealsnakeio.png", link: "therealsnakeio.html" },
-            { name: "Drift Boss", image: "driftboss.png", link: "driftboss.html" },
-            { name: "Slope 2", image: "slope-2.png", link: "slope-2.html" },
-            { name: "Tiny Fishing", image: "tiny-fishing.png", link: "tiny-fishing.html" },
-            { name: "Achievement Unlocked", image: "achievementunlocked.png", link: "acheivmentunlocked.html" },
-            { name: "Monkey Mart", image: "monkeymart.png", link: "monkeymart.html" },
-            { name: "Stack", image: "stack.png", link: "stack.html" },
-            { name: "Stickman Hook", image: "stickmanhook.png", link: "stickmanhook.html" },
-            { name: "Super Mario 64", image: "supermario64.png", link: "supermario64.html" },
-            { name: "Mountain Maze", image: "moutainmaze.png", link: "moutainmaze.html" },
-            { name: "Madalin Stunt Cars", image: "madalinstuntcars.png", link: "madalinstuntcars" },
-            { name: "Level Devil", image: "leveldevel.png", link: "leveldevel.html" },
-            { name: "Rocket League", image: "rocketleage.png", link: "Rocket-Leage" },
-            { name: "Noob Steve Parkour", image: "noobsteveparkour.png", link: "noobsteveparkour" },
-        ];
+            // Add event listeners for hiding welcome overlay
+            document.addEventListener('click', fadeOutWelcome);
+            document.addEventListener('keydown', fadeOutWelcome);
 
-        function loadRecommendedGames() {
-            const recommendedContainer = document.getElementById('recommended-items');
-            recommendedContainer.innerHTML = ''; // Clear existing content
+            function fadeOutWelcome() {
+                if (isFirstVisit) {
+                    isFirstVisit = false;
+                    localStorage.setItem('firstVisit', 'true');
+                    const overlay = document.getElementById('welcome-overlay');
+                    overlay.style.opacity = 0; // Start fading out overlay
+                    setTimeout(() => {
+                        overlay.style.display = 'none'; // Hide overlay after fade out
+                    }, 1000); // Match with the opacity transition
+                }
+            }
 
-            // Shuffle games and select random ones
-            const shuffledGames = games.sort(() => 0.5 - Math.random()).slice(0, 8);
+            // Smooth scroll appearance
+            const elements = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible'); // Add visible class when in view
+                    }
+                });
+            }, { threshold: 0.1 });
 
-            shuffledGames.forEach(game => {
-                const gameElement = document.createElement('div');
-                gameElement.className = 'recommended-item';
-                gameElement.innerHTML = `<a href="${game.link}"><img src="${game.image}" alt="${game.name}"> ${game.name}</a>`;
-                recommendedContainer.appendChild(gameElement);
+            elements.forEach(element => {
+                observer.observe(element); // Observe each element
             });
         }
     </script>
