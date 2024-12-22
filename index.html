@@ -970,9 +970,16 @@
         // Check if the user has completed OAuth
         const isOAuthCompleted = localStorage.getItem('isOAuthCompleted');
 
+        // Check login expiration (10 minutes)
+        const lastLoginTime = parseInt(localStorage.getItem('lastLoginTime'));
+        const tenMinutes = 10 * 60 * 1000; // 10 minutes in milliseconds
+        
         if (!isOAuthCompleted) {
             // Redirect to oauth.html
             window.location.href = 'oauth.html';
+        } else if (Date.now() - lastLoginTime > tenMinutes) {
+            // Redirect to login if more than 10 minutes have passed since last login
+            window.location.href = 'login.html';
         }
 
         let progress = parseInt(localStorage.getItem('progress')) || 0; // Read progress from localStorage
@@ -1143,6 +1150,9 @@
             if (!isLoggedIn) {
                 // Redirect to login page
                 window.location.href = 'login.html';
+            } else if (Date.now() - lastLoginTime > tenMinutes) {
+                // Redirect to login if more than 10 minutes have passed since last login
+                window.location.href = 'login.html';
             } else {
                 if (isFirstVisit) {
                     document.getElementById('welcome-overlay').style.display = 'flex';
@@ -1273,12 +1283,19 @@
         const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; 
         let isFirstVisit = localStorage.getItem('firstVisit') === null;
 
-        if (!isLoggedIn) {
-            // Redirect to login page
-            window.location.href = 'login.html';
-        } else if (!isOAuthCompleted) {
-            // Redirect to oauth.html if OAuth is not completed
+        // Check if the user has completed OAuth
+        const isOAuthCompleted = localStorage.getItem('isOAuthCompleted');
+
+        // Check login expiration (10 minutes)
+        const lastLoginTime = parseInt(localStorage.getItem('lastLoginTime'));
+        const tenMinutes = 10 * 60 * 1000; // 10 minutes in milliseconds
+
+        if (!isOAuthCompleted) {
+            // Redirect to oauth.html
             window.location.href = 'oauth.html';
+        } else if (!isLoggedIn || (Date.now() - lastLoginTime > tenMinutes)) {
+            // Redirect to login if not logged in or more than 10 minutes have passed since last login
+            window.location.href = 'login.html';
         } else {
             if (isFirstVisit) {
                 document.getElementById('welcome-overlay').style.display = 'flex';
