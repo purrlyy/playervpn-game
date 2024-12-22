@@ -902,7 +902,7 @@
             <h2>ROCKET LEAGUE</h2>
             <p>Car soccer.</p>
         </div>
-            <div class="game-item reveal" onclick="openGame('noobsteveparkour', 'noobsteveparkour')">
+        <div class="game-item reveal" onclick="openGame('noobsteveparkour', 'noobsteveparkour')">
             <img src="noobsteveparkour.png" alt="steve;parkour">
             <h2>Noob Steve Parkour</h2>
             <p>A minecraft like obby.</p>
@@ -1118,44 +1118,53 @@
             updateProgressBar();
             loadRecommendedGames();
 
-            // Welcome Overlay Logic
+            // First time visit handling
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; 
             let isFirstVisit = localStorage.getItem('firstVisit') === null;
 
-            if (isFirstVisit) {
-                document.getElementById('welcome-overlay').style.display = 'flex';
-                setTimeout(() => {
-                    document.getElementById('welcome-content').style.opacity = 1; // Fade in content
-                }, 100); // 3 seconds to show welcome content
+            if (!isLoggedIn) {
+                // Redirect to login page
+                window.location.href = 'login.html';
             } else {
-                document.getElementById('welcome-overlay').style.display = 'none'; // Hides if not first visit
-            }
-
-            // Add event listeners for hiding welcome overlay
-            document.addEventListener('click', fadeOutWelcome);
-            document.addEventListener('keydown', fadeOutWelcome);
-
-            function fadeOutWelcome() {
                 if (isFirstVisit) {
-                    isFirstVisit = false;
-                    localStorage.setItem('firstVisit', 'true');
-                    const overlay = document.getElementById('welcome-overlay');
-                    overlay.style.opacity = 0; // Start fading out overlay
+                    document.getElementById('welcome-overlay').style.display = 'flex';
                     setTimeout(() => {
-                        overlay.style.display = 'none'; // Hide overlay after fade out
-                    }, 1000); // Match with the opacity transition
+                        document.getElementById('welcome-content').style.opacity = 1; // Fade in content 
+                    }, 100); // 3 seconds before showing welcome content
+                } else {
+                    document.getElementById('welcome-overlay').style.display = 'none'; // Hides if not first visit
                 }
-            }
 
-            // Scroll Animation
-            const revealElements = document.querySelectorAll('.reveal');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible'); // Add visible class when in view
+                // Add event listeners for hiding welcome overlay
+                document.addEventListener('click', fadeOutWelcome);
+                document.addEventListener('keydown', fadeOutWelcome);
+
+                function fadeOutWelcome() {
+                    if (isFirstVisit) {
+                        isFirstVisit = false;
+                        localStorage.setItem('firstVisit', 'true');
+                        const overlay = document.getElementById('welcome-overlay');
+                        overlay.style.opacity = 0; // Start fading out overlay
+                        setTimeout(() => {
+                            overlay.style.display = 'none'; // Hide overlay after fade out
+                        }, 1000); // Match with the opacity transition
                     }
+                }
+
+                // Smooth scroll appearance
+                const elements = document.querySelectorAll('.reveal');
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible'); // Add visible class when in view
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                elements.forEach(element => {
+                    observer.observe(element); // Observe each element
                 });
-            });
-            revealElements.forEach(elem => observer.observe(elem));
+            }
         };
 
         // Recommended Games Logic
@@ -1241,46 +1250,52 @@
     </script>
     <script>
         // First time visit handling
+        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; 
         let isFirstVisit = localStorage.getItem('firstVisit') === null;
 
-        if (isFirstVisit) {
-            document.getElementById('welcome-overlay').style.display = 'flex';
-            setTimeout(() => {
-                document.getElementById('welcome-content').style.opacity = 1; // Fade in content 
-            }, 100); // 3 seconds before showing welcome content
+        if (!isLoggedIn) {
+            // Redirect to login page
+            window.location.href = 'login.html';
         } else {
-            document.getElementById('welcome-overlay').style.display = 'none'; // Hides if not first visit
-        }
-
-        // Add event listeners for hiding welcome overlay
-        document.addEventListener('click', fadeOutWelcome);
-        document.addEventListener('keydown', fadeOutWelcome);
-
-        function fadeOutWelcome() {
             if (isFirstVisit) {
-                isFirstVisit = false;
-                localStorage.setItem('firstVisit', 'true');
-                const overlay = document.getElementById('welcome-overlay');
-                overlay.style.opacity = 0; // Start fading out overlay
+                document.getElementById('welcome-overlay').style.display = 'flex';
                 setTimeout(() => {
-                    overlay.style.display = 'none'; // Hide overlay after fade out
-                }, 1000); // Match with the opacity transition
+                    document.getElementById('welcome-content').style.opacity = 1; // Fade in content 
+                }, 100); // 3 seconds before showing welcome content
+            } else {
+                document.getElementById('welcome-overlay').style.display = 'none'; // Hides if not first visit
             }
-        }
 
-        // Smooth scroll appearance
-        const elements = document.querySelectorAll('.reveal');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible'); // Add visible class when in view
+            // Add event listeners for hiding welcome overlay
+            document.addEventListener('click', fadeOutWelcome);
+            document.addEventListener('keydown', fadeOutWelcome);
+
+            function fadeOutWelcome() {
+                if (isFirstVisit) {
+                    isFirstVisit = false;
+                    localStorage.setItem('firstVisit', 'true');
+                    const overlay = document.getElementById('welcome-overlay');
+                    overlay.style.opacity = 0; // Start fading out overlay
+                    setTimeout(() => {
+                        overlay.style.display = 'none'; // Hide overlay after fade out
+                    }, 1000); // Match with the opacity transition
                 }
-            });
-        }, { threshold: 0.1 });
+            }
 
-        elements.forEach(element => {
-            observer.observe(element); // Observe each element
-        });
+            // Smooth scroll appearance
+            const elements = document.querySelectorAll('.reveal');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible'); // Add visible class when in view
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            elements.forEach(element => {
+                observer.observe(element); // Observe each element
+            });
+        }
     </script>
 </body>
 </html>
