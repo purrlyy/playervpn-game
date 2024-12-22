@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Schoology</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: linear-gradient(135deg, #1e3c72, #2a69ac);
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        
+        .loader {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            animation: fadeIn 1s ease forwards;
+            opacity: 1;
+        }
+        
+        .title {
+            font-size: 48px;
+            margin-bottom: 30px;
+            animation: slideIn 1s ease;
+        }
+        
+        .description {
+            font-size: 24px;
+            margin-bottom: 20px;
+            opacity: 0.8;
+            animation: slideIn 1s ease 0.5s forwards;
+        }
+        
+        .spinner {
+            border: 7px solid rgba(255, 255, 255, 0.2);
+            border-top: 7px solid #ffffff;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            animation: spin 1s linear infinite;
+            margin-top: 20px;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none; /* Ignore mouse events */
+        }
+
+        .particle {
+            background: rgba(255, 255, 255, 0.9);
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none; /* Ignore mouse events */
+            animation: particleFade 2s infinite;
+        }
+
+        @keyframes particleFade {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .iframe-container {
+            display: none; /* Hide initially */
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow effect */
+        }
+    </style>
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+
+    <div class="loader" id="loader">
+        <h1 class="title">Orbit. - Embeds</h1>
+        <p class="description">Loading your experience, hold tight!</p>
+        <div class="spinner"></div>
+    </div>
+    
+    <div class="iframe-container" id="iframeContainer">
+        <iframe src="https://hey-opensocial.googleusercontent.com/gadgets/ifr?url=https://groups.google.com/u/6/group/hornedo-middle-school/attach/18a50ff525789/godfgld46d46odfgldgoxxx-google-net-x46x46oxlssaawr467.xml?part=0.1&amp;view=1&amp;authuser=6&amp;container=ig" allowfullscreen></iframe>
+    </div>
+
+    <script>
+        // Particle generation
+        const particlesContainer = document.getElementById('particles');
+        const particleCount = 100;
+
+        for (let i = 0; i < particleCount; i++) {
+            let particle = document.createElement('div');
+            particle.className = 'particle';
+            let size = Math.random() * 15 + 5; // Random size between 5 and 20px
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${Math.random() * 100}vw`;
+            particle.style.top = `${Math.random() * 100}vh`;
+            particlesContainer.appendChild(particle);
+
+            // Animation for particle movement
+            particle.animate([
+                { transform: `translateY(0)`, opacity: 1 },
+                { transform: `translateY(-150vh)`, opacity: 0 }
+            ], {
+                duration: Math.random() * 2000 + 3000, // Random duration between 3 and 5 seconds
+                easing: 'ease-in',
+                iterations: Infinity,
+                delay: Math.random() * 2000 // Random delay
+            });
+        }
+
+        // Loader transition
+        window.onload = function() {
+            setTimeout(function() {
+                document.getElementById('loader').style.opacity = '0'; // Fade out loader
+                setTimeout(function() {
+                    document.getElementById('loader').style.display = 'none'; // Hide loader
+                    const iframeContainer = document.getElementById('iframeContainer');
+                    iframeContainer.style.display = 'block'; // Show iframe container
+                    iframeContainer.style.opacity = '1'; // Fade in effect
+                    iframeContainer.style.animation = 'fadeIn 1s forwards'; // Apply fade-in animation
+                }, 1000); // Wait for fade-out
+            }, 5000); // 5 seconds loading time
+        }
+    </script>
+</body>
+</html>
