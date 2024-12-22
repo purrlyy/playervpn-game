@@ -29,7 +29,12 @@ If you are a fan of the game **BuildNowGG**, then do realize that it **will not 
 
 **4: Subway Surfers in folder. (New and not gonna link to the website until fixed)**
 
+# ㊙️Secure login
+**Added a secure one time login for security reasons (so teachers can not find a way in :))**
+
 # 👨‍💻 Changelog
+**Added secure one time login** 
+
 **Added a NEW about:blank cloaker**
 
 **Added a NEW tab cloak feature!**
