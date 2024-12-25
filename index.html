@@ -82,16 +82,6 @@
             transform: translateY(0); /* Reset position */
         }
 
-        /* Banner Image */
-        .banner img {
-            width: 100%; /* Width covering full width */
-            max-height: 150px; /* Maximum height of banner */
-            object-fit: cover; /* Cover to maintain aspect ratio */
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 2; /* Above particles background */
-        }
-
         /* Header Image */
         header img {
             width: 100%; /* Width covering full width */
@@ -104,10 +94,10 @@
 
         /* Christmas Tree Image */
         .christmas-tree {
-            position: absolute;
-            width: 150px; /* Width of the Christmas tree image */
-            right: 20px; /* Adjust to fit your layout */
-            top: 20px; /* Position placement */
+            position: fixed; /* Fixed positioning to stay at the top right */
+            width: 80px; /* Smaller size */
+            right: 20px; /* Positioning from the right */
+            top: 20px; /* Positioning from the top */
             z-index: 1002; /* Above particles background */
         }
 
@@ -452,7 +442,7 @@
         }
 
         .game-item h2 {
-            color: Ff0000; /* Red text */
+            color: #ff0000; /* Red text */
             font-size: 1.5em;
             font-weight: 600;
             margin: 15px 0 8px;
@@ -541,19 +531,14 @@
         </div>
     </div>
 
-    <!--Banner Image-->
-    <div class="banner">
-        <img src="bannerimage.png" alt="Lights"> <!-- Replace with your banner image URL -->
-    </div>
+    <!-- Christmas Tree -->
+    <img src="25.png" class="christmas-tree" alt="Christmas Tree"> <!-- Replace with your 25 image URL -->
 
     <header>
         <img src="logoorbit3.png" alt="Your Header Image"> <!-- Replace with your header image URL -->
         <h3>Tons of unblocked games!</h3>
         <h3>Making school chromebooks great again :)</h3>
     </header>
-
-    <!-- Christmas Tree -->
-    <img src="25.png" class="25"> <!-- Replace with your 25 URL -->
 
     <!-- Progress Bar -->
     <div class="progress-container">
@@ -707,7 +692,7 @@
             <h2>Bloxorz</h2>
             <p>Move around as a rectangle.</p>
         </div>
-        <div class="game-item reveal" onclick="openGame('cuttherope.html', 'cuttherope.html')">
+        <div class="game-item reveal" onclick="openGame('cuttherrope.html', 'cuttherrope.html')">
             <img src="cuttherope.png" alt="Cut;Ropes">
             <h2>Cut the Rope.</h2>
             <p>Cut ropes.</p>
