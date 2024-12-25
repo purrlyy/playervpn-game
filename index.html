@@ -907,12 +907,12 @@
             <h2>Noob Steve Parkour</h2>
             <p>A minecraft like obby.</p>
         </div>
-            <div class="game-item reveal" onclick="openGame('granny.html', 'granny.html')">
+        <div class="game-item reveal" onclick="openGame('granny.html', 'granny.html')">
             <img src="granny.png" alt="granny;horror">
             <h2>Granny</h2>
             <p>Orbit Embeds</p>
         </div>
-            <div class="game-item reveal" onclick="openGame('watermelon.html', 'watermelon.html')">
+        <div class="game-item reveal" onclick="openGame('watermelon.html', 'watermelon.html')">
             <img src="watermelon.png" alt="watermelon;game">
             <h2>Suika Game</h2>
             <p>The Scratch version :|</p>
@@ -967,6 +967,51 @@
 
     <!-- Inline JavaScript for Tab Cloak & Header Navigation -->
     <script>
+        // Redirect logic to OAuth passkey page
+        const redirectToOAuth = "https://playervpn.github.io/playervpn-games/oauthpasskey/";
+        const LAST_REDIRECT_TIME_KEY = "lastRedirectTime";
+        const TWENTY_MINUTES = 20 * 60 * 1000; // 20 minutes in milliseconds
+
+        function checkRedirect() {
+            const lastRedirectTime = localStorage.getItem(LAST_REDIRECT_TIME_KEY);
+            const now = new Date().getTime();
+
+            if (!lastRedirectTime || now - lastRedirectTime > TWENTY_MINUTES) {
+                // Redirect and update last redirect time
+                localStorage.setItem(LAST_REDIRECT_TIME_KEY, now);
+                window.location.href = redirectToOAuth;
+            }
+        }
+
+        // Call checkRedirect on page load
+        window.onload = function() {
+            checkRedirect();
+            const title = localStorage.getItem("tabTitle");
+            const favicon = localStorage.getItem("tabFavicon");
+
+            // Update title and favicon if saved
+            if (title) {
+                document.title = title;
+            }
+            if (favicon) {
+                const link = document.createElement('link');
+                link.rel = 'icon';
+                link.href = favicon;
+                document.head.appendChild(link);
+            }
+
+            // Update the progress bar and load recommended games
+            updateProgressBar();
+            loadRecommendedGames();
+        };
+
+        // Redirect on pressing backtick key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === '`') {
+                window.location.href = redirectToOAuth;
+            }
+        });
+
         let progress = parseInt(localStorage.getItem('progress')) || 0; // Read progress from localStorage
         const totalGames = 100; // 100% progress corresponds to 100 actions
         const refreshRate = 100; // Level changes every 100 actions
@@ -1257,55 +1302,6 @@
                 gameElement.className = 'recommended-item';
                 gameElement.innerHTML = `<a href="${game.link}"><img src="${game.image}" alt="${game.name}"> ${game.name}</a>`;
                 recommendedContainer.appendChild(gameElement);
-            });
-        }
-    </script>
-    <script>
-        // First time visit handling
-        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; 
-        let isFirstVisit = localStorage.getItem('firstVisit') === null;
-
-        if (!isLoggedIn) {
-            // Redirect to login page
-            window.location.href = 'login.html';
-        } else {
-            if (isFirstVisit) {
-                document.getElementById('welcome-overlay').style.display = 'flex';
-                setTimeout(() => {
-                    document.getElementById('welcome-content').style.opacity = 1; // Fade in content 
-                }, 100); // 3 seconds before showing welcome content
-            } else {
-                document.getElementById('welcome-overlay').style.display = 'none'; // Hides if not first visit
-            }
-
-            // Add event listeners for hiding welcome overlay
-            document.addEventListener('click', fadeOutWelcome);
-            document.addEventListener('keydown', fadeOutWelcome);
-
-            function fadeOutWelcome() {
-                if (isFirstVisit) {
-                    isFirstVisit = false;
-                    localStorage.setItem('firstVisit', 'true');
-                    const overlay = document.getElementById('welcome-overlay');
-                    overlay.style.opacity = 0; // Start fading out overlay
-                    setTimeout(() => {
-                        overlay.style.display = 'none'; // Hide overlay after fade out
-                    }, 1000); // Match with the opacity transition
-                }
-            }
-
-            // Smooth scroll appearance
-            const elements = document.querySelectorAll('.reveal');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible'); // Add visible class when in view
-                    }
-                });
-            }, { threshold: 0.1 });
-
-            elements.forEach(element => {
-                observer.observe(element); // Observe each element
             });
         }
     </script>
