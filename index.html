@@ -1,6 +1,7 @@
 <link rel="shortcut icon" type="image/png" href="https://i.ibb.co/j52f5kD/pvpn-favi.png">
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,7 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
@@ -90,15 +91,6 @@
             margin-bottom: 20px;
             position: relative;
             z-index: 2; /* Above particles background */
-        }
-
-        /* Christmas Tree Image */
-        .christmas-tree {
-            position: fixed; /* Fixed positioning to stay at the top right */
-            width: 80px; /* Smaller size */
-            right: 20px; /* Positioning from the right */
-            top: 20px; /* Positioning from the top */
-            z-index: 1002; /* Above particles background */
         }
 
         /* Progress Bar Styles */
@@ -461,21 +453,47 @@
 
         /* Keyframes for Animations */
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes colorCycle {
-            0% { color: #6a0dad; }
-            25% { color: #1e90ff; }
-            50% { color: #6a0dad; }
-            75% { color: #1e90ff; }
-            100% { color: #6a0dad; }
+            0% {
+                color: #6a0dad;
+            }
+
+            25% {
+                color: #1e90ff;
+            }
+
+            50% {
+                color: #6a0dad;
+            }
+
+            75% {
+                color: #1e90ff;
+            }
+
+            100% {
+                color: #6a0dad;
+            }
         }
 
         /* Responsive Layout */
@@ -519,6 +537,7 @@
         }
     </style>
 </head>
+
 <body>
     <div id="particles-js"></div>
 
@@ -530,9 +549,6 @@
             <h2>Click anywhere to play games</h2>
         </div>
     </div>
-
-    <!-- Christmas Tree -->
-    <img src="25.png" class="christmas-tree" alt="Christmas Tree"> <!-- Replace with your 25 image URL -->
 
     <header>
         <img src="logoorbit3.png" alt="Your Header Image"> <!-- Replace with your header image URL -->
@@ -692,7 +708,7 @@
             <h2>Bloxorz</h2>
             <p>Move around as a rectangle.</p>
         </div>
-        <div class="game-item reveal" onclick="openGame('cuttherrope.html', 'cuttherrope.html')">
+        <div class="game-item reveal" onclick="openGame('cuttherrope.html', 'cuttherope.html')">
             <img src="cuttherope.png" alt="Cut;Ropes">
             <h2>Cut the Rope.</h2>
             <p>Cut ropes.</p>
@@ -970,7 +986,7 @@
         }
 
         // Redirect on page load
-        window.onload = function() {
+        window.onload = function () {
             checkRedirect();
             const title = localStorage.getItem("tabTitle");
             const favicon = localStorage.getItem("tabFavicon");
@@ -992,7 +1008,7 @@
         };
 
         // Redirect on pressing backtick key
-        document.addEventListener('keydown', function(event) {
+        document.addEventListener('keydown', function (event) {
             if (event.key === '`') {
                 window.location.href = redirectToOAuth;
             }
@@ -1140,7 +1156,7 @@
         }
 
         // Load settings from localStorage on page load
-        window.onload = function() {
+        window.onload = function () {
             const title = localStorage.getItem("tabTitle");
             const favicon = localStorage.getItem("tabFavicon");
 
@@ -1160,7 +1176,7 @@
             loadRecommendedGames();
 
             // First time visit handling
-            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true'; 
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
             let isFirstVisit = localStorage.getItem('firstVisit') === null;
 
             if (!isLoggedIn) {
@@ -1294,4 +1310,5 @@
         }
     </script>
 </body>
+
 </html>
