@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chromebook Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #1a237e, #0d47a1);
+      color: #ffffff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      width: 400px;
+      background-color: rgba(255, 255, 255, 0.1);
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+      text-align: center;
+      padding: 40px 20px;
+      backdrop-filter: blur(10px);
+    }
+    img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-bottom: 20px;
+      border: 2px solid #ffffff;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 14px;
+      color: #c5cae9;
+      margin-bottom: 20px;
+    }
+    input[type="password"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #c5cae9;
+      border-radius: 4px;
+      font-size: 16px;
+      box-sizing: border-box;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+    }
+    input[type="password"]::placeholder {
+      color: #c5cae9;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      background-color: #0d47a1;
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #1e88e5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://www.gstatic.com/images/branding/product/1x/avatar_circle_blue_512dp.png" alt="User Avatar">
+    <h1 id="title">Create a password</h1>
+    <p id="subtitle">You will use this password to log in securely</p>
+    <input type="password" id="password" placeholder="Enter your password" required>
+    <button id="submitBtn">Next</button>
+  </div>
+
+  <script>
+    const title = document.getElementById('title');
+    const subtitle = document.getElementById('subtitle');
+    const passwordInput = document.getElementById('password');
+    const submitBtn = document.getElementById('submitBtn');
+
+    // Check if a password already exists in local storage
+    const savedPassword = localStorage.getItem('orbitPassword');
+
+    if (savedPassword) {
+      title.textContent = 'Re-enter your password';
+      subtitle.textContent = 'Welcome back! Please enter your password to continue';
+      submitBtn.textContent = 'Sign in';
+    }
+
+    submitBtn.addEventListener('click', () => {
+      const password = passwordInput.value;
+
+      if (!password) {
+        alert('Please enter a password.');
+        return;
+      }
+
+      if (savedPassword) {
+        // If password exists, verify it
+        if (password === savedPassword) {
+          alert('Password verified! Redirecting...');
+          window.location.href = 'https://playervpn.github.io/playervpn-games';
+        } else {
+          alert('Incorrect password. Please try again.');
+        }
+      } else {
+        // Save password in local storage and public storage
+        localStorage.setItem('orbitPassword', password);
+        // Simulate public storage (you would replace this with an actual API call)
+        console.log('Password saved to public storage:', password);
+
+        alert('Password created successfully! Redirecting...');
+        window.location.href = 'https://playervpn.github.io/playervpn-games';
+      }
+    });
+  </script>
+</body>
+</html>
