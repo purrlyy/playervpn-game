@@ -71,31 +71,16 @@
             transition: opacity 1s ease-in-out 1s; /* Start fading in after 1s */
         }
 
-        /* Sidebar Styles */
-        .sidebar {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            width: 200px;
-            background-color: #282a36;
-            border: 2px solid #464646; /* Darker grey */
-            border-radius: 12px;
-            padding: 10px;
-            z-index: 1000;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+        /* Smooth Reveal Styles */
+        .reveal {
+            opacity: 0; /* Initially hidden */
+            transform: translateY(20px); /* Shift down */
+            transition: opacity 0.8s ease, transform 0.8s ease; /* Smooth transitions */
         }
 
-        /* Message Styles */
-        .message {
-            display: none; /* Hidden by default */
-            text-align: center;
-            font-size: 1.5em;
-            color: red; /* Color of the message */
-            z-index: 2000; /* Above other content */
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+        .reveal.visible {
+            opacity: 1; /* Show content */
+            transform: translateY(0); /* Reset position */
         }
 
         /* Header Image */
@@ -327,6 +312,41 @@
             border-color: #ff0000; /* Red on focus */
         }
 
+        /* Sidebar Styles */
+        .sidebar {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            width: 200px;
+            background-color: #282a36;
+            border: 2px solid #464646; /* Darker grey */
+            border-radius: 12px;
+            padding: 10px;
+            z-index: 1000;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .sidebar h3 {
+            color: #ffffff; /* Red titles */
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #b3b3b3;
+            margin: 8px 0;
+            padding: 5px;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .sidebar a:hover {
+            background: rgba(30, 144, 255, 0.2); /* Light blue */
+        }
+
         /* Recommended Games */
         .recommended-games {
             margin-top: 20px;
@@ -454,19 +474,32 @@
             }
         }
 
+        @keyframes colorCycle {
+            0% {
+                color: #6a0dad;
+            }
+
+            25% {
+                color: #1e90ff;
+            }
+
+            50% {
+                color: #6a0dad;
+            }
+
+            75% {
+                color: #1e90ff;
+            }
+
+            100% {
+                color: #6a0dad;
+            }
+        }
+
         /* Responsive Layout */
         @media (max-width: 768px) {
-            .sidebar {
-                display: none; /* Hide sidebar on small devices */
-            }
-
-            .message {
-                display: block; /* Show message on small devices */
-            }
-
             .games-container {
-                grid-template-columns: 1fr; /* 1 item per row on smaller screens */
-                padding: 10px; /* Adjust padding for smaller screens */
+                grid-template-columns: repeat(2, 1fr); /* 2 items per row on smaller screens */
             }
 
             header h2 {
@@ -502,7 +535,6 @@
             border: none;
             border-radius: 10px; /* Rounded iframe corners */
         }
-
     </style>
 </head>
 
@@ -512,28 +544,14 @@
     <!-- Welcome Overlay -->
     <div id="welcome-overlay">
         <div id="welcome-content">
-            <img src="logoorbit.png" alt="Welcome Image" style="max-width: 80%; height: auto;">
+            <img src="logoorbit.png" alt="Welcome Image" style="max-width: 80%; height: auto;"> <!-- Replace with your welcome image URL -->
             <h2>Welcome, your freedom starts now</h2>
             <h2>Click anywhere to play games</h2>
         </div>
     </div>
 
-    <!-- Sidebar -->
-    <div class="sidebar" id="sidebar">
-        <h3>Menu</h3>
-        <a href="quickkey.html"><img src="quickkey.png" alt="LEAVE" style="width: 20px; margin-right: 8px;"> LEAVE</a>
-        <div class="recommended-games">
-            <h3>Recommended Games</h3>
-            <div id="recommended-items"></div>
-        </div>
-    </div>
-
-    <div class="message" id="device-message">
-        Sorry, Orbit is for screen sizes 75% or smaller on your device.
-    </div>
-
     <header>
-        <img src="logoorbit3.png" alt="Your Header Image">
+        <img src="logoorbit3.png" alt="Your Header Image"> <!-- Replace with your header image URL -->
         <h3>Tons of unblocked games!</h3>
         <h3>Making school chromebooks great again :)</h3>
     </header>
@@ -549,7 +567,7 @@
 
     <!-- New Game Promotion Section -->
     <div class="game-promotion">
-        <img src="https://assets.isthereanydeal.com/018d937f-2988-7178-854c-b3327322abd2/banner400.jpg?t=1733619327" alt="Granny">
+        <img src="https://assets.isthereanydeal.com/018d937f-2988-7178-854c-b3327322abd2/banner400.jpg?t=1733619327" alt="Granny"> <!-- Replace with your promotional image URL -->
         <button class="play-now-button" onclick="openGame('granny', 'granny')">Play Now in Browser</button>
         <div class="promotion-label">
             <i class="fas fa-fire" style="color: white;"></i>
@@ -560,7 +578,9 @@
     <!-- A:B Cloaker Button -->
     <button class="cloak-button" onclick="window.location.href='/playervpn-games/aboutblank'">A:B Cloaker</button>
 
-    <!-- Game Container -->
+    <!-- Settings Icon (placed under the A:B Cloaker Button) -->
+    <button class="cloak-button" id="settings-button" style="top: 70px;" onclick="openSettings()">⚙️ Settings</button>
+
     <div class="games-container" id="games-container">
         <!-- Game items -->
         <div class="game-item reveal" onclick="openGame('requestgame.html', 'requestgame.html')">
@@ -936,23 +956,18 @@
         </div>
     </div>
 
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar" style="display: none;">
+        <h3>Menu</h3>
+        <a href="quickkey.html"><img src="quickkey.png" alt="LEAVE" style="width: 20px; margin-right: 8px;"> LEAVE</a>
+        <div class="recommended-games">
+            <h3>Recommended Games</h3>
+            <div id="recommended-items"></div>
+        </div>
+    </div>
+
     <!-- Inline JavaScript for Tab Cloak & Header Navigation -->
     <script>
-        // Check for screen size
-        function checkScreenSize() {
-            if (window.innerWidth > 768) {
-                document.getElementById('sidebar').style.display = 'block'; // Show sidebar
-                document.getElementById('device-message').style.display = 'none'; // Hide message
-            } else {
-                document.getElementById('sidebar').style.display = 'none'; // Hide sidebar
-                document.getElementById('device-message').style.display = 'block'; // Show message
-            }
-        }
-
-        // Check on load and resize
-        window.onload = checkScreenSize;
-        window.onresize = checkScreenSize;
-
         // Redirect logic to OAuth passkey page
         const redirectToOAuth = "https://playervpn.github.io/playervpn-games/oauthpasskey";
         const LAST_REDIRECT_TIME_KEY = "lastRedirectTime";
