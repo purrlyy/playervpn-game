@@ -47,3 +47,5 @@ If you are a fan of the game **BuildNowGG**, then do realize that it **will not 
 
 #
 **Bigfoot9999 was here :)**
+**Awesome! Welcome to the team! One thing, NO embedded urls, all code :)**
+*Pls remember that!*
