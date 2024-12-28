@@ -161,6 +161,27 @@
             transform: scale(1.05);
         }
 
+        /* Credits Button Styles */
+        .credits-button {
+            position: fixed;
+            right: 20px;
+            top: 80px; /* Positioned below the settings button */
+            background: linear-gradient(45deg, #444444, #444444); /* Dark grey */
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+            z-index: 1001;
+        }
+
+        .credits-button:hover {
+            box-shadow: 0 0 20px blue; /* Glow effect on hover */
+            transform: scale(1.05);
+        }
+
         /* Game Promotion Styles */
         .game-promotion {
             width: calc(100% - 40px); /* Adjust to fit within margins */
@@ -581,6 +602,9 @@
     <!-- Settings Icon (placed under the A:B Cloaker Button) -->
     <button class="cloak-button" id="settings-button" style="top: 70px;" onclick="openSettings()">⚙️ Settings</button>
 
+    <!-- Credits Button -->
+    <button class="credits-button" onclick="window.location.href='/credits.html'">Credits</button>
+
     <div class="games-container" id="games-container">
         <!-- Game items -->
         <div class="game-item reveal" onclick="openGame('requestgame.html', 'requestgame.html')">
@@ -918,12 +942,12 @@
             <h2>Suika Game</h2>
             <p>The Scratch version :|</p>
         </div>
-            <div class="game-item reveal" onclick="openGame('fnaw.html', 'fnaw.html')">
+        <div class="game-item reveal" onclick="openGame('fnaw.html', 'fnaw.html')">
             <img src="fnaw.png" alt="fn;aw">
             <h2>FNAW</h2>
             <p>Basically FNAF</p>
         </div>
-            <div class="game-item reveal" onclick="openGame('johnny-trigger.html', 'johnny-trigger.html')">
+        <div class="game-item reveal" onclick="openGame('johnny-trigger.html', 'johnny-trigger.html')">
             <img src="johnny-trigger.png" alt="johnny;trigger">
             <h2>Johnny Trigger</h2>
             <p>3d(ish) mobile game :)</p>
