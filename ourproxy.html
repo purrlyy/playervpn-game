@@ -3,13 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orbit proxy</title>
+    <title>Modal Fullscreen Iframe</title>
     <style>
         body, html {
             margin: 0;
             padding: 0;
             height: 100%;
             overflow: hidden;
+        }
+        /* Modal container */
+        .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        /* Modal content */
+        .modal-content {
+            width: 100%;
+            height: 100%;
+            background: #fff; /* White background */
+            display: flex;
         }
         iframe {
             width: 100%;
@@ -19,6 +38,11 @@
     </style>
 </head>
 <body>
-    <iframe src="https://orbit-ngg.onrender.com/search.html"></iframe>
+    <!-- Modal Structure -->
+    <div class="modal">
+        <div class="modal-content">
+            <iframe src="https://orbit-ngg.onrender.com/search.html"></iframe>
+        </div>
+    </div>
 </body>
 </html>
