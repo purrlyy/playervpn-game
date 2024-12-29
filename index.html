@@ -130,7 +130,7 @@
             white-space: nowrap;
             position: relative;
             width: 100%;
-            height: 100px; /* Height for the marquee */
+            height: 120px; /* Height for the marquee */
         }
 
         .game-marquee {
@@ -155,8 +155,10 @@
         }
 
         .game-marquee-item img {
-            height: 70px; /* Set the height for images */
-            width: auto; /* Maintain aspect ratio */
+            height: 100px; /* Set height for images */
+            width: 100px; /* Set width for images */
+            border-radius: 15px; /* Rounded corners */
+            transition: all 0.3s; /* Smooth transition for transformations */
         }
 
         .game-marquee-item:hover {
@@ -626,23 +628,18 @@
     <!-- Game Images Marquee -->
     <div class="game-marquee-container">
         <div class="game-marquee">
-            <div class="game-marquee-item" onclick="openGame('requestgame.html', 'requestgame.html')"><img src="requestgame.png" alt="Game;request"></div>
-            <div class="game-marquee-item" onclick="openGame('snowrider.html', 'snowrider.html')"><img src="snowrider.png" alt="Snowrider"></div>
-            <div class="game-marquee-item" onclick="openGame('timeshooter3.html', 'timeshooter3.html')"><img src="timeshooter3.png" alt="Time Shooter 3"></div>
-            <div class="game-marquee-item" onclick="openGame('smashkarts.html', 'smashkarts.html')"><img src="smashkarts.png" alt="Smash Karts"></div>
-            <div class="game-marquee-item" onclick="openGame('stickdual.html', 'stickdual.html')"><img src="stickdual.png" alt="Stick Duals"></div>
-            <div class="game-marquee-item" onclick="openGame('mario.html', 'mario.html')"><img src="mario.png" alt="Mario"></div>
-            <div class="game-marquee-item" onclick="openGame('football.html', 'football.html')"><img src="football.png" alt="Football"></div>
-            <div class="game-marquee-item" onclick="openGame('robber.html', 'robber.html')"><img src="robber.png" alt="BobTheRobber"></div>
-            <div class="game-marquee-item" onclick="openGame('deathrun.html', 'deathrun.html')"><img src="deathrun.png" alt="Death run game."></div>
-            <div class="game-marquee-item" onclick="openGame('amongus.html', 'amongus.html')"><img src="amongus.png" alt="Among Us"></div>
-            <div class="game-marquee-item" onclick="openGame('drivemad.html', 'drivemad.html')"><img src="drivemad.png" alt="Drivemad"></div>
-            <!-- Continue adding more game images -->
-            <div class="game-marquee-item" onclick="openGame('tunnelrush.html', 'tunnelrush.html')"><img src="tunnelrush.png" alt="Tunnel Rush"></div>
-            <div class="game-marquee-item" onclick="openGame('geometrydash.html', 'geometrydash.html')"><img src="geometrydash.png" alt="Geometry Dash"></div>
-            <div class="game-marquee-item" onclick="openGame('pacman.html', 'pacman.html')"><img src="pacman.png" alt="Pacman"></div>
-            <div class="game-marquee-item" onclick="openGame('doodlejump.html', 'doodlejump.html')"><img src="doodlejump.png" alt="Doodle Jump"></div>
-            <!-- Add all other games similarly -->
+            <a class="game-marquee-item" onclick="openGame('requestgame.html', 'requestgame.html')"><img src="requestgame.png" alt="Game;request"></a>
+            <a class="game-marquee-item" onclick="openGame('snowrider.html', 'snowrider.html')"><img src="snowrider.png" alt="Snowrider"></a>
+            <a class="game-marquee-item" onclick="openGame('timeshooter3.html', 'timeshooter3.html')"><img src="timeshooter3.png" alt="Time Shooter 3"></a>
+            <a class="game-marquee-item" onclick="openGame('smashkarts.html', 'smashkarts.html')"><img src="smashkarts.png" alt="Smash Karts"></a>
+            <a class="game-marquee-item" onclick="openGame('stickdual.html', 'stickdual.html')"><img src="stickdual.png" alt="Stick Duals"></a>
+            <a class="game-marquee-item" onclick="openGame('mario.html', 'mario.html')"><img src="mario.png" alt="Mario"></a>
+            <a class="game-marquee-item" onclick="openGame('football.html', 'football.html')"><img src="football.png" alt="Football"></a>
+            <a class="game-marquee-item" onclick="openGame('robber.html', 'robber.html')"><img src="robber.png" alt="BobTheRobber"></a>
+            <a class="game-marquee-item" onclick="openGame('deathrun.html', 'deathrun.html')"><img src="deathrun.png" alt="Death run game."></a>
+            <a class="game-marquee-item" onclick="openGame('amongus.html', 'amongus.html')"><img src="amongus.png" alt="Among Us"></a>
+            <a class="game-marquee-item" onclick="openGame('drivemad.html', 'drivemad.html')"><img src="drivemad.png" alt="Drivemad"></a>
+            <!-- Add more game images as needed -->
         </div>
     </div>
 
@@ -795,7 +792,7 @@
             <h2>Bloxorz</h2>
             <p>Move around as a rectangle.</p>
         </div>
-        <div class="game-item reveal" onclick="openGame('cuttherrope.html', 'cuttherrope.html')">
+        <div class="game-item reveal" onclick="openGame('cuttherrope.html', 'cuttherope.html')">
             <img src="cuttherope.png" alt="Cut;Ropes">
             <h2>Cut the Rope.</h2>
             <p>Cut ropes.</p>
