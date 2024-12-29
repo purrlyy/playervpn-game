@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbit Games</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle at top, #1e014e, #07070e 80%);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background: rgba(30, 1, 78, 0.9);
+            border-bottom: 2px solid #9b4dd7;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .header .logo i {
+            font-size: 2rem;
+            color: #c26bf7;
+            margin-right: 10px;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            color: #fff;
+            text-shadow: 0 0 10px #c26bf7, 0 0 20px #c26bf7;
+        }
+
+        .section {
+            padding: 40px 20px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #ffdbfa;
+            text-shadow: 0 0 10px #ff87fd;
+        }
+
+        .section-title i {
+            margin-right: 10px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(255, 150, 250, 0.8), 0 0 50px rgba(255, 87, 253, 0.7);
+        }
+
+        .card a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+        }
+
+        .card a:hover {
+            color: #ffdbfa;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(30, 1, 78, 0.9);
+            color: #c26bf7;
+            border-top: 2px solid #9b4dd7;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        footer a {
+            color: #ffdbfa;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .card img {
+                height: 140px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <i class="fas fa-globe"></i>
+            <h1>Orbit V2</h1>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">
+            <i class="fas fa-th"></i>
+            <span>Apps</span>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <a href="/static/embed.html#https://mathsspot.com">
+                    <img src="img/roblox.jpg" alt="Roblox">
+                    roblox
+                </a>
+            </div>
+            <div class="card">
+                <a href="/static/embed.html#https://mathsspot.com/apps/aptoide/5874/aptoide.html">
+                    <img src="img/aptoide.png" alt="Aptoide">
+                    aptoide
+                </a>
+            </div>
+            <div class="card">
+                <a href="/static/embed.html#https://mathsspot.com/apps/tiktok/4478/tiktok.html">
+                    <img src="img/tiktok.png" alt="TikTok">
+                    tiktok
+                </a>
+            </div>
+            <div class="card">
+                <a href="/static/embed.html#https://mathsspot.com/apps/character-ai/5482/character-ai-chat-ask-create.html">
+                    <img src="img/download.png" alt="Character AI">
+                    c.ai
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <div class="section-title">
+            <i class="fas fa-gamepad"></i>
+            <span>Games</span>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <a href="/static/embed.html#https://mathsspot.com/apps/proxima-beta/2609/pubg-mobile-resistance.html">
+                    <img src="img/pubgmobile.png" alt="PUBG">
+                    pubg
+                </a>
+            </div>
+            <div class="card">
+                <a href="/static/embed.html#https://mathsspot.com/apps/electronic-arts/1353/ea-sports-fc-mobile-24-soccer.html">
+                    <img src="img/fcmobile.jpg" alt="FC Mobile">
+                    fc mobile
+                </a>
+            </div>
+            <div class="card">
+                <a href="/static/embed.html#https://mathsspot.com/apps/activision-publishing-inc/7935/call-of-duty.html">
+                    <img src="img/cod.png" alt="Call of Duty Mobile">
+                    cod
+                </a>
+            </div>
+            <div class="card">
+                <a href="/static/embed.html#https://mathsspot.com/apps/cognosphere-pte-ltd-/1773/genshin-impact.html">
+                    <img src="img/genshin.png" alt="Genshin Impact">
+                    genshin impact
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2024 Orbit Games V2| <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+</body>
+</html>
