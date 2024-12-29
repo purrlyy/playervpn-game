@@ -130,7 +130,7 @@
             white-space: nowrap;
             position: relative;
             width: 100%;
-            height: 120px; /* Height for the marquee */
+            height: 140px; /* Height for the marquee */
         }
 
         .game-marquee {
@@ -151,14 +151,14 @@
             display: inline-block;
             margin: 0 10px; /* Space between images */
             cursor: pointer;
-            transition: outline 0.3s; /* Smooth outline transition */
+            transition: outline 0.3s, animation-play-state 0.3s; /* Smooth outline transition */
         }
 
         .game-marquee-item img {
-            height: 100px; /* Set height for images */
-            width: 100px; /* Set width for images */
+            height: 120px; /* Set height for images */
+            width: 120px; /* Set width for images */
             border-radius: 15px; /* Rounded corners */
-            transition: all 0.3s; /* Smooth transition for transformations */
+            transition: outline 0.3s, transform 0.3s; /* Smooth transition for transformations */
         }
 
         .game-marquee-item:hover {
@@ -639,7 +639,7 @@
             <a class="game-marquee-item" onclick="openGame('deathrun.html', 'deathrun.html')"><img src="deathrun.png" alt="Death run game."></a>
             <a class="game-marquee-item" onclick="openGame('amongus.html', 'amongus.html')"><img src="amongus.png" alt="Among Us"></a>
             <a class="game-marquee-item" onclick="openGame('drivemad.html', 'drivemad.html')"><img src="drivemad.png" alt="Drivemad"></a>
-            <!-- Add more game images as needed -->
+            <!-- You can continue adding more game images -->
         </div>
     </div>
 
@@ -1037,7 +1037,7 @@
             <h2>Yohoho io</h2>
             <p>Play now in this pirate themed battle royal!</p>
         </div>
-            <div class="game-item reveal" onclick="openGame('Retrobowl', 'Retrobowl')">
+        <div class="game-item reveal" onclick="openGame('Retrobowl', 'Retrobowl')">
             <img src="retrobowl.png" alt="bowl;retro">
             <h2>Retro Bowl</h2>
             <p>Retro Bowl is an American style football game created by New Star Games!</p>
@@ -1318,7 +1318,7 @@
                     document.getElementById('welcome-overlay').style.display = 'none'; // Hides if not first visit
                 }
 
-                // Add event listeners for hiding welcome overlay
+                                // Add event listeners for hiding welcome overlay
                 document.addEventListener('click', fadeOutWelcome);
                 document.addEventListener('keydown', fadeOutWelcome);
 
@@ -1350,7 +1350,7 @@
             }
         };
 
-        // Recommended Games Logic
+        // Load recommended games from the array
         const games = [
             { name: "Snowrider 3D", image: "snowrider.png", link: "snowrider.html" },
             { name: "Time Shooter 3", image: "timeshooter3.png", link: "timeshooter3.html" },
@@ -1362,74 +1362,13 @@
             { name: "Death Run 3D", image: "deathrun.png", link: "deathrun.html" },
             { name: "AmongUs", image: "amongus.png", link: "amongus.html" },
             { name: "Drivemad", image: "drivemad.png", link: "drivemad.html" },
-            { name: "Stick Archer", image: "archer.png", link: "archer.html" },
-            { name: "ROBLOX - DOWN", image: "robloxcover.png", link: "roblox.html" },
-            { name: "Snowball IO", image: "snowballio.png", link: "snowballio.html" },
-            { name: "GunSpin", image: "gunspin.png", link: "gunspin.html" },
-            { name: "1v1 lol", image: "1v1lol.png", link: "1v1lol.html" },
-            { name: "2048", image: "2048.png", link: "2048.html" },
-            { name: "Cookie Clicker", image: "cookieclicker.png", link: "cookieclicker.html" },
-            { name: "Hole IO", image: "holeio.png", link: "holeio.html" },
-            { name: "Justfall LOL", image: "justfall.png", link: "justfall.html" },
-            { name: "FNAF", image: "fnaf1.png", link: "fnaf1.html" },
-            { name: "Basketball Stars", image: "bballstars.png", link: "bballstars.html" },
-            { name: "Bitlife.", image: "bitlife.png", link: "bitlife.html" },
-            { name: "Bloxorz", image: "bloxorz.png", link: "bloxorz.html" },
-            { name: "Cut the Rope.", image: "cuttherope.png", link: "cuttherope.html" },
-            { name: "EaglercraftX", image: "eaglercraftx.png", link: "eaglercraftx.html" },
-            { name: "BuildNow GG", image: "buildnow.png", link: "https://playervpn.github.io/buildnowgamegg/" },
-            { name: "Elastic man", image: "elasticman.png", link: "elasticman.html" },
-            { name: "Retro Haunt", image: "retrohaunt.png", link: "retrohaunt.html" },
-            { name: "Chrome Dino", image: "chromedino.png", link: "chromedino.html" },
-            { name: "Slope", image: "slopegame.png", link: "slope" },
-            { name: "Tunnel Rush", image: "tunnelrush.png", link: "tunnelrush.html" },
-            { name: "Coreball", image: "coreballgame.png", link: "coreballgame.html" },
-            { name: "Pacman :)", image: "pacman.png", link: "pacman.html" },
-            { name: "Tictactoe", image: "tictactoe.png", link: "tictactoe.html" },
-            { name: "Doodle Jump", image: "doodlejump.png", link: "doodlejump.html" },
-            { name: "Bubble Shooter", image: "bubbleshooter.png", link: "bubbleshooter.html" },
-            { name: "Block Blast!", image: "blockblast.png", link: "https://playervpn.github.io/blockblast-unlocked/" },
-            { name: "Evil Glitch", image: "evilglitch.png", link: "evilglitch.html" },
-            { name: "Geometry Dash", image: "geometrydash.png", link: "geometrydash.html" },
-            { name: "Cube Field", image: "cubefieldgame.png", link: "cubefield.html" },
-            { name: "Backrooms", image: "backrooms.png", link: "backrooms.html" },
-            { name: "Paperio 3D", image: "paperio3.png", link: "paper-3.html" },
-            { name: "Territorial IO", image: "territorial.png", link: "territorial.html" },
-            { name: "Cluster Rush", image: "clusterrush.png", link: "clusterrush.html" },
-            { name: "SlitherIO Online", image: "slitherio-online.png", link: "slitherio-online.html" },
-            { name: "Baldis Basics", image: "baldis-basics.png", link: "baldis-basics.html" },
-            { name: "Moto X3M", image: "motox3m.png", link: "motox3m.html" },
-            { name: "Portal", image: "portal.png", link: "portal.html" },
-            { name: "The real SlitherIO", image: "therealsnakeio.png", link: "therealsnakeio.html" },
-            { name: "Drift Boss", image: "driftboss.png", link: "driftboss.html" },
-            { name: "Slope 2", image: "slope-2.png", link: "slope-2.html" },
-            { name: "Tiny Fishing", image: "tiny-fishing.png", link: "tiny-fishing.html" },
-            { name: "Achievement Unlocked", image: "achievementunlocked.png", link: "acheivmentunlocked.html" },
-            { name: "Monkey Mart", image: "monkeymart.png", link: "monkeymart.html" },
-            { name: "Stack", image: "stack.png", link: "stack.html" },
-            { name: "Stickman Hook", image: "stickmanhook.png", link: "stickmanhook.html" },
-            { name: "Super Mario 64", image: "supermario64.png", link: "supermario64.html" },
-            { name: "Mountain Maze", image: "moutainmaze.png", link: "moutainmaze.html" },
-            { name: "Madalin Stunt Cars", image: "madalinstuntcars.png", link: "madalinstuntcars" },
-            { name: "Level Devil", image: "leveldevel.png", link: "leveldevel.html" },
-            { name: "Rocket League", image: "rocketleage.png", link: "Rocket-Leage" },
-            { name: "Noob Steve Parkour", image: "noobsteveparkour.png", link: "noobsteveparkour" },
-            { name: "Granny", image: "granny.png", link: "granny.html" },
-            { name: "Suika Watermelon", image: "watermelon.png", link: "watermelon.html" },
-            { name: "FNAW", image: "fnaw.png", link: "fnaw.html" },
-            { name: "Johnny Trigger", image: "johnny-trigger.png", link: "johnny-trigger.html" },
-            { name: "Orbits Nowgg bypass.", image: "ngg.png", link: "ngg.html" },
-            { name: "Stumble Guys :)", image: "stumble.png", link: "stumble.html" },
-            { name: "Tomb of the Mask", image: "tombofthemask.png", link: "tombofthemask.html" },
-            { name: "Yohoho io", image: "yohoho.png", link: "yohoho" },
-            { name: "Retro Bowl", image: "retrobowl.png", link: "Retrobowl" },
         ];
 
         function loadRecommendedGames() {
             const recommendedContainer = document.getElementById('recommended-items');
             recommendedContainer.innerHTML = ''; // Clear existing content
 
-            // Shuffle games and select random ones
+            // Shuffle games
             const shuffledGames = games.sort(() => 0.5 - Math.random()).slice(0, 8);
 
             shuffledGames.forEach(game => {
