@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Security-Policy" content="default-src blob: cdn.glitch.me cdn.glitch.global 'unsafe-inline' 'unsafe-eval';">
+
+	<meta charset="utf-8">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	<script type="text/javascript">document.domain='4399.com'</script>
+	<script type="text/javascript" src="https://cdn.glitch.global/0c98aa45-2ec4-4f77-8682-f4bf67f9f6fb/4399.js"></script>
+
+    
+	<script>
+	window.config = {
+		loader: 'unity',
+		debug: false,
+		maxRatio: 16 / 9,
+		minRatio: 9 / 16,
+
+		title: 'Subway Surfers',
+		thumbnail: '.\/b3f5e1472e1bfbee1804c7e854546a08.png',
+		numScreenshots:  4 ,
+
+		unityVersion: '2019.4.18f1',
+		unityWebglBuildUrl: 'https://cdn.glitch.global/0c98aa45-2ec4-4f77-8682-f4bf67f9f6fb/ZurichNewPrivacy.json',
+
+		fileSize:  36 ,
+		cachedDecompressedFileSizes: {
+			'ZurichNewPrivacy.asm.code.unityweb':  9078047 ,
+			'ZurichNewPrivacy.asm.framework.unityweb':  86375 ,
+			'ZurichNewPrivacy.asm.memory.unityweb':  956748 ,
+			'ZurichNewPrivacy.data.unityweb':  19164736 ,
+			'ZurichNewPrivacy.wasm.code.unityweb':  7282721 ,
+			'ZurichNewPrivacy.wasm.framework.unityweb':  90700 ,
+		},
+	};
+	</script>
+</head>
+<body>
+	<script>
+  "use strict";
+var scripts = document.getElementsByTagName("script"),
+    scriptUrl = scripts[scripts.length - 1].src,
+    root = scriptUrl.split("master-loader.js")[0],
+    loaders = {
+        unity: "https://cdn.glitch.global/0c98aa45-2ec4-4f77-8682-f4bf67f9f6fb/u.js?v=1719992034873"
+    };
+if (0 <= window.location.href.indexOf("pokiForceLocalLoader") 
+	&& (loaders.unity = "https://cdn.glitch.global/0c98aa45-2ec4-4f77-8682-f4bf67f9f6fb/u.js?v=1719992034873", 
+		
+		root = "/loaders"), !window.config) throw Error("window.config not found");
+var loader = loaders[window.config.loader];
+if (!loader) throw Error('Loader "' + window.config.loader + '" not found');
+if (!window.config.unityWebglLoaderUrl) {
+    var versionSplit = window.config.unityVersion ? window.config.unityVersion.split(".") : [],
+        year = versionSplit[0],
+        minor = versionSplit[1];
+          window.config.unityWebglLoaderUrl ="https://cdn.glitch.global/0c98aa45-2ec4-4f77-8682-f4bf67f9f6fb/UnityLoader.2019.2.js";
+}
+var sdkScript = document.createElement("script");
+sdkScript.src = "https://cdn.glitch.global/0c98aa45-2ec4-4f77-8682-f4bf67f9f6fb/s.js?v=1719992441928", sdkScript.onload = function() {
+    var i = document.createElement("script");
+    i.src = root + loader, document.body.appendChild(i)
+}, document.body.appendChild(sdkScript);
+  </script>
+</body>
+</html>
