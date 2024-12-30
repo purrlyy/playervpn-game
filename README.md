@@ -26,16 +26,16 @@ If you are a fan of the game **BuildNowGG**, then do realize that it **will not 
 # 🔻Down Games
 **1: Roblox**
 
-**3: Flappy Bird (New and not gonna link to the website until fixed)**
+**2: Mario-bros NEW in folder. (New and not gonna link to the website until fixed)**
 
-**4: Mario-bros NEW in folder. (New and not gonna link to the website until fixed)**
-
-**4: Subway Surfers in folder. (New and not gonna link to the website until fixed)**
+**3: Subway Surfers in folder. (New and not gonna link to the website until fixed)**
 
 # ㊙️Secure login
 **Added a secure one time login for security reasons (so teachers can not find a way in :))**
 
 # 👨‍💻 Changelog
+**Fixed Flappy Bird and added it to the site!**
+
 **Added secure one time login** 
 
 **Added a NEW about:blank cloaker**
