@@ -656,7 +656,7 @@
     </div>
 
     <!-- A:B Cloaker Button -->
-    <button class="cloak-button" onclick="window.location.href='/playervpn-games/aboutblank'">A:B Cloaker</button>
+    <button class="cloak-button" onclick="window.location.href='/playervpn-game/aboutblank'">A:B Cloaker</button>
 
     <!-- Settings Icon (placed under the A:B Cloaker Button) -->
     <button class="cloak-button" id="settings-button" style="top: 70px;" onclick="openSettings()">⚙️ Settings</button>
@@ -1068,7 +1068,7 @@
     </div>
 
     <!-- GitHub Button -->
-    <div class="github-button" onclick="window.open('https://github.com/PlayerVPN/playervpn-games', '_blank')">
+    <div class="github-button" onclick="window.open('https://github.com/PlayerVPN/playervpn-game', '_blank')">
         <img src="https://sasountorossian.github.io/Library/images/Github%20Logo.png" class="github-icon" alt="GitHub Icon">
     </div>
 
@@ -1102,7 +1102,7 @@
     <!-- Inline JavaScript for Tab Cloak & Header Navigation -->
     <script>
         // Redirect logic to OAuth passkey page
-        const redirectToOAuth = "https://playervpn.github.io/playervpn-games/oauthpasskey";
+        const redirectToOAuth = "https://playervpn.github.io/playervpn-game/oauthpasskey";
         const LAST_REDIRECT_TIME_KEY = "lastRedirectTime";
         const TWENTY_MINUTES = 20 * 60 * 1000; // 20 minutes in milliseconds
 
@@ -1284,7 +1284,7 @@
         }
 
         // Sidebar visibility for game pages
-        if (window.location.pathname !== '/playervpn-games/index.html') {
+        if (window.location.pathname !== '/playervpn-game/index.html') {
             document.getElementById('sidebar').style.display = 'block';
         }
 
