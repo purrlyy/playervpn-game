@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            min-width: 100%;
+            width: 100%;
+            max-width: 100%;
+            min-height: 100%;
+            height: 100%;
+            max-height: 100%;
+        }
+
+        body {
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #container {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Game container -->
+    <div id="container"></div>
+
+    <!-- Updated paths for Ruffle.js and SWF -->
+    <script src="/assets/ruffle/ruffle.js"></script>
+    <script>
+        window.RufflePlayer = window.RufflePlayer || {};
+
+        window.addEventListener("load", (event) => {
+            const ruffle = window.RufflePlayer.newest();
+            const player = ruffle.createPlayer();
+            player.style.width = "100%";
+            player.style.height = "100%";
+
+            const container = document.getElementById("container");
+            container.appendChild(player);
+
+            player.addEventListener('loadedmetadata', () => {
+                console.info(player.metadata.isActionScript3);
+            });
+
+            // Load the SWF game from the specified location
+            player.load("/Games/src/13-days-in-hell/13-days-in-hell.swf")
+                .then(() => {
+                    console.info("Ruffle successfully loaded the file");
+                    FitScreen();  // Ensure correct sizing on initial load
+                })
+                .catch((e) => {
+                    console.error(`Ruffle failed to load the file: ${e}`);
+                });
+        });
+
+        // Function to adjust the game to fit the screen while maintaining aspect ratio
+        function FitScreen() {
+            var w = 800; // Original game width
+            var h = 600; // Original game height
+
+            var availWidth = window.innerWidth;
+            var availHeight = window.innerHeight;
+
+            var width, height;
+
+            if (availWidth / availHeight > w / h) {
+                height = availHeight;
+                width = (height * w / h);
+            } else {
+                width = availWidth;
+                height = (width * h / w);
+            }
+
+            document.getElementById("container").style.width = width + "px";
+            document.getElementById("container").style.height = height + "px";
+
+            // Resize the player inside the container
+            const player = document.querySelector('object');
+            if (player) {
+                player.style.width = `${width}px`;
+                player.style.height = `${height}px`;
+            }
+        }
+
+        // Ensure the game container resizes on window resize (including fullscreen)
+        window.addEventListener('resize', FitScreen);
+
+        // Fullscreen function: Trigger resize and adjust the player when in fullscreen mode
+        function goFullscreen() {
+            const container = document.getElementById('container');
+            if (container.requestFullscreen) {
+                container.requestFullscreen();
+            } else if (container.mozRequestFullScreen) { /* Firefox */
+                container.mozRequestFullScreen();
+            } else if (container.webkitRequestFullscreen) { /* Chrome, Safari, Opera */
+                container.webkitRequestFullscreen();
+            } else if (container.msRequestFullscreen) { /* IE/Edge */
+                container.msRequestFullscreen();
+            }
+
+            // Adjust the game size after entering fullscreen
+            setTimeout(FitScreen, 500);  // Adding a delay to ensure fullscreen mode is applied
+        }
+
+    </script>
+</body>
+</html>
