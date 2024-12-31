@@ -1,7 +1,7 @@
 {
   "name": "Orbit.",
   "short_name": "Orbit.",
-  "start_url": "https://playervpn.github.io/playervpn-games/",
+  "start_url": "https://playervpn.github.io/playervpn-game/",
   "display": "standalone",
   "background_color": "#1e1e2f",
   "theme_color": "#1e90ff",
