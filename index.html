@@ -83,6 +83,18 @@
             transform: translateY(0); /* Reset position */
         }
 
+        /* Visit Counter Badge */
+        #visitor-counter {
+            margin: 15px auto; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+        }
+
+        #visitor-counter img {
+            width: 133px; /* Width of the badge */
+        }
+
         /* Header Image */
         header img {
             width: 100%; /* Width covering full width */
@@ -164,23 +176,6 @@
         .game-marquee-item:hover {
             outline: 2px solid red; /* Red outline on hover */
             animation-play-state: paused; /* Pause scrolling on hover */
-        }
-
-        /* Visit Counter Styles */
-        .visit-counter {
-            background-color: rgba(30, 30, 47, 0.9);
-            border-radius: 25px; /* Curved corners */
-            padding: 15px 30px;
-            color: white;
-            font-size: 1.5em;
-            position: fixed; /* Fixed positioning */
-            top: 10px; /* Space from the top */
-            left: 50%;
-            transform: translateX(-50%); /* Center horizontally */
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
-            text-align: center;
-            animation: fadeIn 1s ease-in-out;
-            z-index: 2000; /* High z-index to stay above other content */
         }
 
         /* Button Styles */
@@ -613,6 +608,24 @@
         </div>
     </div>
 
+    <!-- Visitor Hit Counter Badge -->
+    <div id="visitor-counter">
+        <!-- Badge Code - Do Not Change The Code -->
+        <div class="col-xs-12 mt20" id="bg">
+            <div style="margin:0px auto;width:133px;background:rgb(0, 0, 0);text-align:left;display:flex;border-radius:5px">
+                <span style="padding:7px;display:inline-block;border-right:1px solid #746dba">
+                    <a href="http://visitorshitcounter.com" rel="nofollow noopener" target="_blank" title="https://visitorshitcounter.com/">
+                        <img src="https://visitorshitcounter.com/img/s-logo.svg" alt="https://visitorshitcounter.com/" style="width:100%;border:none;float:left">
+                    </a>
+                </span>
+                <span class="text" id="dupli_hit_counter" style="padding:10px 0 0 0;display:inline-block;color:rgb(255, 255, 255);width:100%;text-align:center;"></span>
+                <input type="hidden" id="site_val" value="https://visitorshitcounter.com/counterDisplay?code=4b1ad7ff2d74e83b80dc336ab03fdb96&style=0017&pad=5&type=page&initCount=1">
+            </div>
+        </div>
+        <script src="https://visitorshitcounter.com/js/badgess.js?v=1735665299"></script>
+        <!-- Badge Code End Here -->
+    </div>
+
     <header>
         <img src="RBIT-4.png" alt="Logo"> <!-- Replace with your header image URL -->
         <h3>Tons of unblocked games!</h3>
@@ -641,9 +654,6 @@
             <!-- You can continue adding more game images -->
         </div>
     </div>
-
-    <!-- Visit Counter -->
-    <div class="visit-counter" id="visit-counter"></div>
 
     <!-- New Game Promotion Section -->
     <div class="game-promotion">
@@ -1027,7 +1037,7 @@
             <p>Tomb of the Mask develop by Happymagenta UAB is a fast-paced, arcade-style game.</p>
         </div>
         <div class="game-item reveal" onclick="openGame('ourproxy.html', 'ourproxy.html')">
-            <img src="https://i.ibb.co/3TrFXdF/RBIT.png" alt="proxy;our">
+            <img src="https://playervpn.github.io/playervpn-game/logoorbit3.png" alt="proxy;our">
             <h2>Orbit Search</h2>
             <p>We made a proxy!</p>
         </div>
@@ -1041,12 +1051,12 @@
             <h2>Retro Bowl</h2>
             <p>Retro Bowl is an American style football game created by New Star Games!</p>
         </div>
-            <div class="game-item reveal" onclick="openGame('flappy-bird', 'flappy-bird')">
+        <div class="game-item reveal" onclick="openGame('flappy-bird', 'flappy-bird')">
             <img src="flappy-bird.png" alt="bird;retro">
             <h2>Flappy Bird</h2>
             <p>Play flappy bird here online for free!</p>
         </div>
-            <div class="game-item reveal" onclick="openGame('subway-surfers', 'subway-surfers')">
+        <div class="game-item reveal" onclick="openGame('subway-surfers', 'subway-surfers')">
             <img src="subway-surfers.png" alt="surfers;subways">
             <h2>Subway Surfers</h2>
             <p>Don't know if it's blocked or not!!!</p>
@@ -1327,7 +1337,7 @@
                     document.getElementById('welcome-overlay').style.display = 'none'; // Hides if not first visit
                 }
 
-                                // Add event listeners for hiding welcome overlay
+                // Add event listeners for hiding welcome overlay
                 document.addEventListener('click', fadeOutWelcome);
                 document.addEventListener('keydown', fadeOutWelcome);
 
