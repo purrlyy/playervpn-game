@@ -370,70 +370,40 @@
             border-color: #ff0000; /* Red on focus */
         }
 
-       /* Sidebar Styles */
-.sidebar {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    width: 250px;
-    background-color: #44475a;
-    border: 2px solid #6272a4;
-    border-radius: 12px;
-    padding: 15px;
-    z-index: 1000;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
-    color: #f8f8f2;
-    font-family: Arial, sans-serif;
-    display: none; /* Hidden by default */
-    animation: slide-in 0.3s ease-out;
-}
+        /* Sidebar Styles */
+        .sidebar {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            width: 200px;
+            background-color: #282a36;
+            border: 2px solid #464646; /* Darker grey */
+            border-radius: 12px;
+            padding: 10px;
+            z-index: 1000;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+        }
 
-/* Sidebar Header Style */
-.sidebar h3 {
-    margin-top: 0;
-    color: #ff79c6;
-    text-align: center;
-}
+        .sidebar h3 {
+            color: #ffffff; /* Red titles */
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
 
-/* Sidebar Paragraph Style */
-.sidebar p {
-    font-size: 14px;
-    line-height: 1.6;
-    text-align: justify;
-}
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #b3b3b3;
+            margin: 8px 0;
+            padding: 5px;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
 
-/* Button Styles */
-#toggleButton {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    padding: 10px 15px;
-    background-color: #50fa7b;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 16px;
-    color: #282a36;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-    z-index: 1001;
-}
-
-#toggleButton:hover {
-    background-color: #40d967;
-}
-
-/* Slide-in Animation */
-@keyframes slide-in {
-    from {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-    to {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
+        .sidebar a:hover {
+            background: rgba(30, 144, 255, 0.2); /* Light blue */
+        }
 
         /* Recommended Games */
         .recommended-games {
@@ -1418,14 +1388,7 @@
                 });
             }
         };
-        document.getElementById("toggleButton").addEventListener("click", function () {
-    const sidebar = document.getElementById("sidebar");
-    if (sidebar.style.display === "none" || sidebar.style.display === "") {
-        sidebar.style.display = "block";
-    } else {
-        sidebar.style.display = "none";
-    }
-});
+
         // Load recommended games from the array
         const games = [
             { name: "Snowrider 3D", image: "snowrider.png", link: "snowrider.html" },
@@ -1454,7 +1417,7 @@
                 recommendedContainer.appendChild(gameElement);
             });
         }
-   </script>
+    </script>
 </body>
 
 </html>
