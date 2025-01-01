@@ -533,23 +533,22 @@
         <img src="https://sasountorossian.github.io/Library/images/Github%20Logo.png" class="github-icon" alt="GitHub Icon">
     </div>
 
-    <!-- Settings Modal -->
+  <!-- Settings Modal -->
 <div class="modal" id="settings-modal">
     <div class="modal-content">
         <h2 class="settings-title">Tab Cloak Settings</h2>
-        
+
         <!-- Custom Site Cloak Section -->
         <div class="custom-cloak-section">
             <label for="custom-site">Enter Custom Site URL:</label>
             <input type="url" id="custom-site" placeholder="Enter the URL of the site you want to cloak">
         </div>
-        
+
         <!-- Apply Button -->
         <button class="cloak-button" onclick="applyCustomSite()">Apply Custom Site</button>
         <button class="cloak-button" onclick="closeSettings()">Close Settings</button>
     </div>
 </div>
-
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar" style="display: none;">
         <h3>Menu</h3>
@@ -850,34 +849,36 @@
         }
     
         function applyCustomSite() {
-            const customSite = document.getElementById("custom-site").value;
+    const customSite = document.getElementById("custom-site").value;
 
-         if (customSite) {
-        // Extract the domain (for fetching the favicon) and set the title
-            const domain = new URL(customSite).hostname;
+    if (customSite) {
+        // Extract the domain (for favicon) and set the title
+        const domain = new URL(customSite).hostname;
 
-        // Use the domain to get the favicon via Google service
-            const favicon = `https://www.google.com/s2/favicons?domain=${domain}`;
+        // Fetch the favicon using Google's favicon service
+        const favicon = `https://www.google.com/s2/favicons?domain=${domain}`;
 
-        // Update the title to the domain name
-            document.title = domain;
+        // Set the document title to the domain name
+        document.title = domain; // If we need to fetch the title from the site, more steps are required. but I aint coding allat rn lol
 
-        // Update the favicon using the fetched URL
+        // Update the favicon
         updateFavicon(favicon);
     } else {
         alert("Please enter a valid site URL.");
     }
 }
 
-    function updateFavicon(favicon) {
-        let link = document.querySelector("link[rel='icon']");
+function updateFavicon(favicon) {
+    let link = document.querySelector("link[rel='icon']");
 
+    // If there’s no link element with rel="icon", create one
     if (!link) {
         link = document.createElement("link");
         link.rel = "icon";
         document.head.appendChild(link);
     }
 
+    // Update the favicon with the new URL
     link.href = favicon;
 }
     </script>
