@@ -1,6 +1,7 @@
 <div align="center">  
-  <img src="Assets/Banner.jpg" alt="Orbit Proxy Banner" style="width:100%; max-height:200px;">  
-</div>  
+  <img src="Assets/Banner.jpg" alt="Orbit Proxy Banner" style="width: 300%; height: 400px; object-fit: cover;">  
+
+
 
 
 <div align="center">  
