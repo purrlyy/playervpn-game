@@ -1,8 +1,27 @@
-# VIEW OUR NGG BYPASS AT:
+<div align="center">  
+  <img src="Assets/Banner.jpg" alt="Orbit Proxy Banner" style="width:100%; max-height:200px;">  
+</div>  
+
+
+<div align="center">  
+  <h1>Making School Chromebooks Great Again :)</h1>  
+  <p>We are proud to release our new project <strong>ORBIT Games</strong>. Completely built with <strong>HTML</strong>, we've created a <strong>fully functional</strong> game website.</p>
+
+
+
+### VIEW OUR NGG BYPASS AT:
 **https://orbit-ngg.onrender.com**
 
-# 🕹️ PVPN Games
-We are proud to release our new project PlayerVPN games. Completely out of html, we have made a completely functioning game website.
+| Features               | Description                                                |
+|-------------------------|------------------------------------------------------------|
+| Tons of Unblocked Games | Access a wide variety of unblocked games.                  |
+| Password Protected      | Secure access with a password.                             |
+| Forum (Coming Soon)     | A community forum for discussions and updates powered by Moonlight. |
+| Tab Cloaking            | Disguise to an educational site                            |
+| about:blank Cloaker     | Instantly switch to a blank page for privacy.              |
+| Secure One-Time Login   | Login securely with a unique, single-use authentication method. |
+| Easy Accessibility      | PlayerVPN Games is super easy to clone, this can be hosted anywhere, even static site hosts! |
+
 
 # 🚀 How to clone?
 You can QUICKLY fork this repository and deploy through ANYTHING!
@@ -33,24 +52,15 @@ If you are a fan of the game **BuildNowGG**, then do realize that it **will not 
 # ㊙️Secure login
 **Added a secure one time login for security reasons (so teachers can not find a way in :))**
 
-# 👨‍💻 Changelog
-**Fixed Flappy Bird and added it to the site!**
-
-**Added secure one time login** 
-
-**Added a NEW about:blank cloaker**
-
-**Added a NEW tab cloak feature!**
-
-**Added the Manifest.json file and sw.js file to be able to download PVPN Games**
-
-**Added Notifications.js (kind of broken not going to lie!), if you get the option to turn on, decline!**
 
 
 
-#
-**Bigfoot9999 was here :)**
-**Purrly was here :)**
+### Contributors  
+**Thanks to everyone who made Orbit possible!**
 
-**Awesome! Welcome to the team! One thing, NO embedded urls, all code :)**
-*Pls remember that!*
+<div align="center">
+  <a href="https://github.com/PlayerVPN/playervpn-game/graphs/contributors">
+    <img src="https://contrib.rocks/image?repo=PlayerVPN/playervpn-game"/>
+  </a>
+</div>
+
