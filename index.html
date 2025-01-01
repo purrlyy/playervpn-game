@@ -534,21 +534,21 @@
     </div>
 
     <!-- Settings Modal -->
-<div class="modal" id="settings-modal">
-    <div class="modal-content">
-        <h2 class="settings-title">Tab Cloak Settings</h2>
-        
-        <!-- Custom Site Cloak Section -->
-        <div class="custom-cloak-section">
-            <label for="custom-site">Enter Custom Site URL:</label>
-            <input type="url" id="custom-site" placeholder="Enter the URL of the site you want to cloak">
+    <div class="modal" id="settings-modal">
+        <div class="modal-content">
+            <h2 class="settings-title">Tab Cloak Settings</h2>
+            <div class="dropdown">
+                <select id="tab-cloak-select" onchange="changeTabCloak()">
+                    <option value="default">Select Tab Cloak</option>
+                    <option value="schoology">Schoology</option>
+                    <option value="google">Google</option>
+                    <option value="google_classroom">Google Classroom</option>
+                    <option value="edia">Edia</option> <!-- New Edia option -->
+                </select>
+            </div>
+            <button class="cloak-button" onclick="closeSettings()">Close Settings</button>
         </div>
-        
-        <!-- Apply Button -->
-        <button class="cloak-button" onclick="applyCustomSite()">Apply Custom Site</button>
-        <button class="cloak-button" onclick="closeSettings()">Close Settings</button>
     </div>
-</div>
 
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar" style="display: none;">
@@ -848,28 +848,7 @@
                 recommendedContainer.appendChild(gameElement);
             });
         }
-    
-       function applyCustomSite() {
-    const customSite = document.getElementById("custom-site").value;
-    if (customSite) {
-        document.title = customSite;
-        const favicon = `https://www.google.com/s2/favicons?domain=${customSite}`;
-        updateFavicon(favicon);
-    } else {
-        alert("Please enter a valid site URL.");
-    }
-}
-
-function updateFavicon(favicon) {
-    let link = document.querySelector("link[rel='icon']");
-    if (!link) {
-        link = document.createElement("link");
-        link.rel = "icon";
-        document.head.appendChild(link);
-    }
-    link.href = favicon;
-}
     </script>
- </body>
+</body>
 
 </html>
