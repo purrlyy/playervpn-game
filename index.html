@@ -592,9 +592,73 @@
             height: calc(100% - 80px); /* Leave space for controls */
             border: none;
             border-radius: 10px; /* Rounded iframe corners */
-        }
+         }
+      /* Sidebar Styles */
+.sidebar {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 250px;
+    background-color: #44475a;
+    border: 2px solid #6272a4;
+    border-radius: 12px;
+    padding: 15px;
+    z-index: 1000;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+    color: #f8f8f2;
+    font-family: Arial, sans-serif;
+    display: none; /* Hidden by default */
+    animation: slide-in 0.3s ease-out;
+}
+
+/* Sidebar Header Style */
+.sidebar h3 {
+    margin-top: 0;
+    color: #ff79c6;
+    text-align: center;
+}
+
+/* Sidebar Paragraph Style */
+.sidebar p {
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* Button Styles */
+#toggleButton {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 15px;
+    background-color: #50fa7b;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #282a36;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    z-index: 1001;
+}
+
+#toggleButton:hover {
+    background-color: #40d967;
+}
+
+/* Slide-in Animation */
+@keyframes slide-in {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
     </style>
-</head>
+  </head>
 
 <body>
     <div id="particles-js"></div>
@@ -1119,15 +1183,16 @@
         </div>
     </div>
 
-    <!-- Sidebar -->
-    <div class="sidebar" id="sidebar" style="display: none;">
-        <h3>Menu</h3>
-        <a href="quickkey.html"><img src="quickkey.png" alt="LEAVE" style="width: 20px; margin-right: 8px;"> LEAVE</a>
-        <div class="recommended-games">
-            <h3>Recommended Games</h3>
-            <div id="recommended-items"></div>
-        </div>
-    </div>
+   <!-- Sidebar -->
+<div class="sidebar" id="sidebar" style="display: none;">
+    <h3>Orbit</h3>
+    <a href="quickkey.html">
+        <img src="quickkey.png" alt="LEAVE" style="width: 20px; margin-right: 8px;"> LEAVE
+    </a>
+    <a href="https://orbitproxy.flarum.cloud/" target="_blank" style="display: block; margin-top: 15px;">
+        Forum
+    </a>
+</div>
 
     <!-- Inline JavaScript for Tab Cloak & Header Navigation -->
     <script>
