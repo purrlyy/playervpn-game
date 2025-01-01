@@ -14,7 +14,7 @@
 
 | Features               | Description                                                |
 |-------------------------|------------------------------------------------------------|
-| Tons of Unblocked Games | Access a wide variety of unblocked games.                  |
+| Tons of Unlocked Games | Access a wide variety of unlocked games.                  |
 | Password Protected      | Secure access with a password.                             |
 | Forum (Coming Soon)     | A community forum for discussions and updates powered by Moonlight. |
 | Tab Cloaking            | Disguise to an educational site                            |
