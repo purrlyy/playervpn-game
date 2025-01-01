@@ -9,9 +9,6 @@
 
 
 
-### VIEW OUR NGG BYPASS AT:
-**https://orbit-ngg.onrender.com**
-
 | Features               | Description                                                |
 |-------------------------|------------------------------------------------------------|
 | Tons of Unlocked Games | Access a wide variety of unlocked games.                  |
@@ -20,27 +17,23 @@
 | Tab Cloaking            | Disguise to an educational site                            |
 | about:blank Cloaker     | Instantly switch to a blank page for privacy.              |
 | Secure One-Time Login   | Login securely with a unique, single-use authentication method. |
-| Easy Accessibility      | PlayerVPN Games is super easy to clone, this can be hosted anywhere, even static site hosts! |
+| Easy Accessibility      | PlayerVPN Games is super easy to clone or fork, this can be hosted anywhere, even static site hosts! |
 
 
-# 🚀 How to clone?
-You can QUICKLY fork this repository and deploy through ANYTHING!
-
-# 🎮 Deployment
-**PlayerVPN Games is super easy to clone**, this can be hosted anywhere, even **static** site hosts!
-
-# ⚠️ Issues.
-There are A FEW issues:
-If you play **AmongUS**, just know **if your device can not run WEBGL it will completely mess up the WHOLE website** for you!
 
 
-If you **WANT** to play Smash Karts then **go somewhere else until we find out the loading issues**.
+<div align="center">
+  <h2>⚠️ Issues</h2>
+  <ul style="list-style-type: none; padding: 0;">
+    <li><strong>AmongUS</strong>: Requires WEBGL support; may break the site if not available.</li>
+    <li><strong>Smash Karts</strong>: Temporary loading issues, consider playing later.</li>
+    <li><strong>Cookie Clicker</strong>: Doesn't disguise as Schoology, but the favicon works. Pin your tab!</li>
+    <li><strong>BuildNowGG</strong>: Won't run on older Chromebooks but works fine on desktops.</li>
+  </ul>
+</div>
 
 
-For all you **Cookie Clicker** fans out there, **Cookie Clicker** does not disguise as Schoology with it's title. The favicon does work though so I suggest pinning your **Cookie Clicker** tab while your playing!
 
-# 🧱Build Now GG
-If you are a fan of the game **BuildNowGG**, then do realize that it **will not run on an older version of chromebook**, it should run **FINE** if you are on a **desktop**!
 
 # 🔻Down Games
 **1: Roblox**
@@ -49,13 +42,11 @@ If you are a fan of the game **BuildNowGG**, then do realize that it **will not 
 
 **3: Subway Surfers in folder. (New and not gonna link to the website until fixed)**
 
-# ㊙️Secure login
-**Added a secure one time login for security reasons (so teachers can not find a way in :))**
+### Check out our other projects!
+VIEW OUR NGG BYPASS AT: <a href="https://orbit-ngg.onrender.com" target="_blank">here</a>
 
 
-
-
-### Contributors  
+### 🙌 Contributors  
 **Thanks to everyone who made Orbit possible!**
 
 <div align="center">
