@@ -405,6 +405,30 @@
             background: rgba(30, 144, 255, 0.2); /* Light blue */
         }
 
+        /* Recommended Games */
+        .recommended-games {
+            margin-top: 20px;
+        }
+
+        .recommended-item {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+            transition: transform 0.3s;
+        }
+
+        .recommended-item img {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .recommended-item:hover {
+            transform: scale(1.05);
+        }
+
         /* Header Section */
         header {
             text-align: center;
@@ -1096,14 +1120,14 @@
     </div>
 
     <!-- Sidebar -->
-<div class="sidebar" id="sidebar" style="display: none;">
-    <h3>Orbit</h3>
-    <a href="quickkey.html"><img src="quickkey.png" alt="LEAVE" style="width: 20px; margin-right: 8px;"> LEAVE</a>
-    <div class="sidebar-links">
-        <h3>Links</h3>
-        <a href="https://orbitproxy.flarum.cloud" target="_blank">Forum</a>
+    <div class="sidebar" id="sidebar" style="display: none;">
+        <h3>Menu</h3>
+        <a href="quickkey.html"><img src="quickkey.png" alt="LEAVE" style="width: 20px; margin-right: 8px;"> LEAVE</a>
+        <div class="recommended-games">
+            <h3>Recommended Games</h3>
+            <div id="recommended-items"></div>
+        </div>
     </div>
-</div>
 
     <!-- Inline JavaScript for Tab Cloak & Header Navigation -->
     <script>
