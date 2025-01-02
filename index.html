@@ -370,82 +370,64 @@
             border-color: #ff0000; /* Red on focus */
         }
 
-        /* Sidebar Styles */
-        .sidebar {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            width: 200px;
-            background-color: #282a36;
-            border: 2px solid #464646; /* Darker grey */
-            border-radius: 12px;
-            padding: 10px;
-            z-index: 1000;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
-        }
+            /* Sidebar Styles */
 
-        .sidebar h3 {
-            color: #ffffff; /* Red titles */
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
+            .sidebar {
+                position: fixed;
+                top: 20px;
+                left: 20px;
+                width: 200px;
+                background-color: #282a36;
+                border: 2px solid #464646; /* Darker grey */
+                border-radius: 12px;
+                padding: 10px;
+                z-index: 1000;
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+            }
 
-        .sidebar a {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: #b3b3b3;
-            margin: 8px 0;
-            padding: 5px;
-            border-radius: 8px;
-            transition: background 0.3s;
-        }
 
-        .sidebar a:hover {
-            background: rgba(30, 144, 255, 0.2); /* Light blue */
-        }
 
-        /* Recommended Games */
-        .recommended-games {
-            margin-top: 20px;
-        }
+            .sidebar h3 {
+                color: #ffffff; /* White titles */
+                font-size: 1.5em;
+                margin-bottom: 10px;
+            }
 
-        .recommended-item {
-            display: flex;
-            align-items: center;
-            margin: 8px 0;
-            transition: transform 0.3s;
-        }
 
-        .recommended-item img {
-            width: 40px;
-            height: 40px;
-            object-fit: cover;
-            border-radius: 5px;
-            margin-right: 10px;
-        }
 
-        .recommended-item:hover {
-            transform: scale(1.05);
-        }
+            .sidebar a {
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                color: #b3b3b3;
+                margin: 8px 0;
+                padding: 5px;
+                border-radius: 8px;
+                transition: background 0.3s;
+            }
 
-        /* Header Section */
-        header {
-            text-align: center;
-            margin: 30px 0;
-            animation: fadeIn 1s ease-in-out;
-            position: relative;
-        }
 
-        header h2 {
-            font-size: 4.5em; /* Increased header size */
-            font-family: 'Roboto', sans-serif;
-            font-weight: 700;
-            letter-spacing: 3px;
-            color: #ffffff; /* Red color for header */
-            text-shadow: 0 0 20px rgba(255, 0, 0, 0.8); /* Red glow */
-            z-index: 2; /* Above particles background */
-        }
+
+            .sidebar a:hover {
+                background: rgba(30, 144, 255, 0.2); /* Light blue hover effect */
+            }
+
+
+
+            .sidebar a img {
+                width: 20px;
+                height: 20px;
+                margin-right: 8px;
+                object-fit: contain;
+            }
+
+
+
+            .sidebar a:last-child {
+                margin-top: 15px;
+                font-weight: bold;
+            }
+
 
         /* Games Container */
         .games-container {
@@ -1119,16 +1101,20 @@
         </div>
     </div>
 
-    <!-- Sidebar -->
-    <div class="sidebar" id="sidebar" style="display: none;">
-        <h3>Menu</h3>
-        <a href="quickkey.html"><img src="quickkey.png" alt="LEAVE" style="width: 20px; margin-right: 8px;"> LEAVE</a>
-        <div class="recommended-games">
-            <h3>Recommended Games</h3>
-            <div id="recommended-items"></div>
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar" style="display: none;">
+            <h3>Orbit</h3>
+            
+            <a href="quickkey.html">
+                <img src="quickkey.png" alt="LEAVE" style="width: 20px; margin-right: 8px;"> LEAVE
+            </a>
+            
+            <a href="https://orbitproxy.flarum.cloud/" target="_blank" style="display: block; margin-top: 15px;">
+                Forum
+            </a>
+            </div>
         </div>
-    </div>
-
+    
     <!-- Inline JavaScript for Tab Cloak & Header Navigation -->
     <script>
         // Redirect logic to OAuth passkey page
